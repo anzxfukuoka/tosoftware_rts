@@ -6,25 +6,28 @@ using System;
 
 public class Health
 {
-    public int maxHP 
+    public int max
     {
-        get 
+        get
         {
-            return maxHP;
+            return max;
         }
 
-        private set 
+        set
         {
-            if (!alive) 
+            if (!alive)
             {
                 throw new Exception("");
             }
 
-            maxHP = value;
+            max = value;
         }
+
     }
 
-    private int _hp = 100;
+    public int _hp {
+        get; private set;
+    }
 
     public bool alive {
         get 
@@ -40,11 +43,30 @@ public class Health
 
     public void AddHP(int hp)
     {
-        _hp += hp;
+        if (_hp + hp > max) 
+        {
+            _hp = max;
+        }
+        else
+        {
+            _hp += hp;
+        }
     }
 
     public void AddDamage(int damage)
     {
-        _hp -= damage;
+        if (_hp - damage < 0)
+        {
+            _hp = 0;
+        }
+        else 
+        {
+            _hp -= damage;
+        }
+    }
+
+    public void Restore()
+    {
+        _hp = max;
     }
 }

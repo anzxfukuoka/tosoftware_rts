@@ -25,14 +25,14 @@ public class Health
 
     }
 
-    public int _hp {
+    public int curHealth {
         get; private set;
     }
 
     public bool alive {
         get 
         {
-            if (_hp <= 0)
+            if (curHealth <= 0)
             {
                 return false;
             }
@@ -41,32 +41,39 @@ public class Health
         }
     }
 
+    public Health(int maxXP = 100)
+    {
+        max = maxXP;
+        curHealth = maxXP;
+    }
+
+
     public void AddHP(int hp)
     {
-        if (_hp + hp > max) 
+        if (curHealth + hp > max) 
         {
-            _hp = max;
+            curHealth = max;
         }
         else
         {
-            _hp += hp;
+            curHealth += hp;
         }
     }
 
-    public void AddDamage(int damage)
+    public void Hit(int damage)
     {
-        if (_hp - damage < 0)
+        if (curHealth - damage < 0)
         {
-            _hp = 0;
+            curHealth = 0;
         }
         else 
         {
-            _hp -= damage;
+            curHealth -= damage;
         }
     }
 
     public void Restore()
     {
-        _hp = max;
+        curHealth = max;
     }
 }

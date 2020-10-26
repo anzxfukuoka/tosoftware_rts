@@ -8,7 +8,7 @@ public class Character
     private Health _health;
     private Energy _energy;
 
-    Character(int maxHealth = 100, int maxEnergy = 100)
+    public Character(int maxHealth = 100, int maxEnergy = 100)
     {
         _experience = new Experience();
         _health = new Health(maxHealth);

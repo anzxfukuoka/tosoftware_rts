@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Experience
 {
+    public class Upgrade
+    {
+    }
+
     public int curExperience { get; private set; } = 0;
     public int curLevel { get; private set; } = 0;
     private int expToNextLevel = 0;
@@ -13,7 +17,7 @@ public class Experience
         curLevel++;
         expToNextLevel = CalculateNextLvlExp(curLevel);
         expToNextLevel = 0;
-        onLevelUp();
+        OnLevelUp();
     }
 
     private int CalculateNextLvlExp(int level)
@@ -39,9 +43,10 @@ public class Experience
         curExperience = currentExperience;
     }
     
-    protected virtual void onLevelUp()
+    public virtual Upgrade OnLevelUp()
     {
         Debug.Log("Level up: lvl " + curLevel + " experince to nextLvl: " + expToNextLevel);
+        return new Upgrade();
     }
 
 

@@ -19,9 +19,29 @@ public class Energy
         }
     }
 
-    public Energy(int maxEnergy)
+    public Energy(int maxEnergy = 100)
     {
         max = maxEnergy;
+        energy = maxEnergy;
+    }
+
+    public void BoostEnergy(int energyBoost)
+    {
+        max += energyBoost;
+        energy += energyBoost;
+    }
+
+    public bool DecreaseEnergy(int removedEnergy)
+    {
+        if (max - removedEnergy < 0)
+        {
+            return false;
+        }
+        else
+        {
+            max -= removedEnergy;
+            return true;
+        }
     }
 
     public void ReturnEnergy(int returnedEnergy)
@@ -35,14 +55,15 @@ public class Energy
         }
     }
 
-    public void ExtractEnergy(int removedEnergy) {
-        if (energy - removedEnergy < 0)
+    public int ExtractEnergy(int extractedEnergy) {
+        if (energy - extractedEnergy < 0)
         {
-            energy = 0;
+            return 0;
         }
         else 
         {
-            energy -= removedEnergy;
+            energy -= extractedEnergy;
+            return extractedEnergy;
         }
     }
 

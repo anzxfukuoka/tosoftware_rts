@@ -6,43 +6,49 @@ public class Energy
 {
     public int max { get; set; } = 100;
 
-    public int _ep
+    public int energy
     {
         get
         {
-            return _ep;
+            return energy;
         }
 
-        private set {
-            _ep = value;
+        private set
+        {
+            energy = value;
         }
     }
 
-    public void AddEnergy(int e)
+    public Energy(int maxEnergy)
     {
-        if (_ep + e < max)
+        max = maxEnergy;
+    }
+
+    public void ReturnEnergy(int returnedEnergy)
+    {
+        if (energy + returnedEnergy < max)
         {
-            _ep += e;
+            energy += returnedEnergy;
         }
         else {
-            _ep = max;
+            energy = max;
         }
     }
 
-    public void ExtractEnergy(int e) {
-        if (_ep - e < 0)
+    public void ExtractEnergy(int removedEnergy) {
+        if (energy - removedEnergy < 0)
         {
-            _ep = 0;
+            energy = 0;
         }
         else 
         {
-            _ep -= e;
+            energy -= removedEnergy;
         }
     }
 
     public void Restore() 
     {
-        _ep = max;
+        energy = max;
     }
 
 }

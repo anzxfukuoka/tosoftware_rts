@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Experience : MonoBehaviour
+public class Experience
 {
     public int curExperience { get; private set; } = 0;
     public int curLevel { get; private set; } = 0;

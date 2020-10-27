@@ -67,6 +67,16 @@ public class Energy
         }
     }
 
+    public bool HasEnoughEnergy(int neededEnergy) 
+    {
+        if (energy - neededEnergy < 0)
+        {
+            return false;
+        }
+
+        return true;
+    }
+
     public void Restore() 
     {
         energy = max;

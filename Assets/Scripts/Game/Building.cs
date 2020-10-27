@@ -11,6 +11,17 @@ public class Building
     public Health health;
     public Vector2Int size { get; private set; }
 
+    public Energy energy;
+
+    public float effectivity 
+    { 
+        get 
+        {
+            return energy.energy / energy.max;
+        }
+
+        private set { }
+    }
 
     public Building(int sizeX, int sizeY, int requiedEnergy, int maxHealth, string name = "building") 
     {

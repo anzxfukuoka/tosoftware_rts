@@ -1,24 +1,34 @@
-﻿public class PlayerTraffic : Robot
+﻿using UnityEngine;
+using System.Collections;
+public class PlayerTraffic : Robot
 
 {
-    float speed;
-    public PlayerTraffic(float speed, float X, float Y, string name) : base(name)
+    private Vector2 speed;
+    public PlayerTraffic(Vector2 speed, string name) : base()
     {
         this.speed = speed;
-        speed.X = (-1, 1);
-        speed.Y = (-1, 1);
 
 
 
     }
 
     private Vector2 movement;
-    void Update(float input, float X, float Y)
+
+   IEnumerator Update()
+    {
+        while (true)
+        {
+            CheckInput();
+            yield return null;
+        }
+    }
+
+    void CheckInput()
     {
         float inputX = Input.GetAxis("Horizontal");
         float inputY = Input.GetAxis("Vertical");
 
-        movement = new Vector2(speed.X * inputX, speed.Y * inputY);
+        movement = new Vector2(speed.x * inputX, speed.y * inputY);
 
 
     }

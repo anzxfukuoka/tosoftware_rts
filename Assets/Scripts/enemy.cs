@@ -7,7 +7,7 @@ public class Enemy : NPC
 {
     public Enemy(int startlevel)
     {
-        curLevel=startlevel
+        curLevel = startlevel;
     }
     
 

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -23,6 +24,7 @@ public class RobotExperience : Experience
     public override Upgrade OnLevelUp()
     {
         levelUpgrade = new LevelUpgrades(curLevel);
+        InvokeLevelUP(levelUpgrade);
         return levelUpgrade as LevelUpgrades;
     }
 }

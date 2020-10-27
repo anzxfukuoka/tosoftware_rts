@@ -9,6 +9,13 @@ public class Robot : PC, IControllable
         health = new Health(maxHP);
         energy = new Energy(maxEnergy);
         experience = new RobotExperience();
+        experience.OnLevelUP += LevelUp;
+    }
+
+    private void LevelUp(Experience.Upgrade upgrade)
+    {
+        health.AddHP(upgrade.hpBuff);
+        energy.BoostEnergy(upgrade.energyBuff);
     }
 
     public void Action1()

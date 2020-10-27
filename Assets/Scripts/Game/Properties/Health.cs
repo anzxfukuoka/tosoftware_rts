@@ -50,7 +50,13 @@ public class Health
 
     public void AddHP(int hp)
     {
-        if (curHealth + hp > max) 
+        max += hp;
+        curHealth += hp;
+    }
+
+    public void Heal(int hp)
+    {
+        if (curHealth + hp > max)
         {
             curHealth = max;
         }

@@ -12,6 +12,11 @@ public class Robot : PC, IControllable
         experience.OnLevelUP += LevelUp;
     }
 
+    ~Robot()
+    {
+        experience.OnLevelUP -= LevelUp;
+    }
+
     private void LevelUp(Experience.Upgrade upgrade)
     {
         health.AddHP(upgrade.hpBuff);

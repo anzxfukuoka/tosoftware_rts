@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Controllable
 {
-    interface IControllable 
-    {
-
-        public void Move(Vector2 dir);
-
-    }
+    
 }
 
+public interface IControllable
+{
+    void Move(Vector2 dir, float speed);
+    void Action1();
+    void Action2();
+}

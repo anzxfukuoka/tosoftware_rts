@@ -21,6 +21,4 @@ public class Character
         _health = null;
         _energy = null;
     }
-
-
 }

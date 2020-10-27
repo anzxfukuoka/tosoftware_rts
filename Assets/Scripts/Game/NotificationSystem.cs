@@ -3,26 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NotificationSystem : MonoBehaviour
+public class NotificationSystem
 {
     public delegate void Messege(string msg);
 
-    public static event Messege DebugMSG;
-    public static event Messege UserMSG;
-
-    void Start()
+    public void DebugMsg(string msg) 
     {
-        DebugMSG += Debug.Log; //вывод в консоль юнити
-        UserMSG += Debug.Log;
+        //вывод в консоль юнити
+        Debug.Log("DEBUG: " + msg); 
     }
 
-    public static void DebugMsg(string msg) 
+    public void UserMsg(string msg)
     {
-        DebugMSG.Invoke("DEBUG: " + msg);
-    }
-
-    public static void UserMsg(string msg)
-    {
-        UserMSG.Invoke("GAME: " + msg);
+        Debug.Log("GAME: " + msg);
     }
 }

@@ -9,13 +9,16 @@ public class RobotExperience : Experience
     {
         private const int _DEFAULTHPBUFF = 30;
         private const int _DEFAULTENERGYBUFF = 40;
-        public int hpBuff { get; private set; }
-        public int energyBuff { get; private set; }
 
         public LevelUpgrades(int level)
         {
             hpBuff = (int)Mathf.Exp(level) * _DEFAULTHPBUFF;
             energyBuff = (int)Mathf.Exp(level) * _DEFAULTENERGYBUFF;
+        }
+
+        ~LevelUpgrades()
+        {
+
         }
     }
 

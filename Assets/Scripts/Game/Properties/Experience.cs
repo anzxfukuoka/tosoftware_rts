@@ -9,8 +9,8 @@ public class Experience
 
     public class Upgrade
     {
-        public int hpBuff { get; private set; }
-        public int energyBuff { get; private set; }
+        public int hpBuff;
+        public int energyBuff;
     }
 
     public int curExperience { get; private set; } = 0;

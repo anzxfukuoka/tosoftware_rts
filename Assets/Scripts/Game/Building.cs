@@ -9,9 +9,9 @@ public class Building
     public int _requiedEnergy { get; private set; }
 
     public Health health;
-    public Vector2Int size { get; private set; }
-
     public Energy energy;
+
+    public Vector2Int size { get; private set; }
 
     public float effectivity 
     { 
@@ -25,6 +25,8 @@ public class Building
 
     public Building(int sizeX, int sizeY, int requiedEnergy, int maxHealth, string name = "building") 
     {
+        buildingName = name;
+
         health = new Health(maxHealth);
         size = new Vector2Int(sizeX, sizeY);
 
@@ -35,7 +37,7 @@ public class Building
     public void Build(Energy source) {
         if (source.HasEnoughEnergy(_requiedEnergy))
         {
-            source.DecreaseEnergy(_requiedEnergy);
+            source.ExtractEnergy(_requiedEnergy);
             BuildProcces();
         }
         else 
@@ -54,7 +56,7 @@ public class Building
 public class StrongBuilding : Building
 {
     public StrongBuilding() 
-        : base(10 , 10, 128, 9000, "Strong Building")
+        : base(10 , 10, 42, 9000, "Strong Building")
     { 
 
     }
@@ -68,7 +70,7 @@ public class StrongBuilding : Building
 public class SmallBuilding : Building
 {
     public SmallBuilding()
-        : base(1 , 1, 10, 2, "Small Building")
+        : base(1 , 1, 2, 100, "Small Building")
     {
 
     }

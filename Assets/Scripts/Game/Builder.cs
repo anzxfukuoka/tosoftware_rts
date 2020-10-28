@@ -2,16 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Builder
+public class Builder : PC
 {
-    private Energy _energySource;
-
-    public Builder(Energy energySource) {
-        this._energySource = energySource;
-    }
-
     public void Build(Building building) {
 
-        building.Build(_energySource);
+        building.Build(energy);
     }
 }

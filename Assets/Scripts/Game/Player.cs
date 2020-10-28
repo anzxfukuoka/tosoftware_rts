@@ -17,7 +17,9 @@ public class Player : IControllable
     {
         id = ++_n;
         this.name = name;
+        
         robot = new Robot();
+        builder = new Builder();
 
         NotificationSystem.DebugMsg("player name: " + name);
         NotificationSystem.DebugMsg("player id: " + id);
@@ -25,25 +27,36 @@ public class Player : IControllable
 
     public void ProcessInput()
     {
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.W))
         {
             NotificationSystem.DebugMsg("Player " + name + " input W");
             robot.Move(Direction.Up);
         }
-        else if (Input.GetKey(KeyCode.S))
+        else if (Input.GetKeyDown(KeyCode.S))
         {
             NotificationSystem.DebugMsg("Player " + name + " input S");
             robot.Move(Direction.Down);
         }
-        else if (Input.GetKey(KeyCode.A))
+        else if (Input.GetKeyDown(KeyCode.A))
         {
             NotificationSystem.DebugMsg("Player " + name + " input A");
             robot.Move(Direction.Left);
         }
-        else if (Input.GetKey(KeyCode.D))
+        else if (Input.GetKeyDown(KeyCode.D))
         {
             NotificationSystem.DebugMsg("Player " + name + " input D");
             robot.Move(Direction.Right);
+        }
+
+        else if (Input.GetKeyDown(KeyCode.F))
+        {
+            SmallBuilding smallBuilding = new SmallBuilding();
+            builder.Build(smallBuilding);
+        }
+        else if (Input.GetKeyDown(KeyCode.R))
+        {
+            StrongBuilding strongBuilding = new StrongBuilding();
+            builder.Build(strongBuilding);
         }
     }
 }

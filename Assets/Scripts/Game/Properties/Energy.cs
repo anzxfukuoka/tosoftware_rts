@@ -6,18 +6,7 @@ public class Energy
 {
     public int max { get; set; } = 100;
 
-    public int energy
-    {
-        get
-        {
-            return energy;
-        }
-
-        private set
-        {
-            energy = value;
-        }
-    }
+    public int energy { get; private set; }
 
     public Energy(int maxEnergy = 100)
     {

@@ -1,11 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Experience
 {
+    public virtual event Action<Upgrade> OnLevelUP = delegate { };
+
     public class Upgrade
     {
+        public int hpBuff { get; private set; }
+        public int energyBuff { get; private set; }
     }
 
     public int curExperience { get; private set; } = 0;
@@ -45,8 +50,14 @@ public class Experience
     
     public virtual Upgrade OnLevelUp()
     {
+        OnLevelUP.Invoke(new Upgrade());
         Debug.Log("Level up: lvl " + curLevel + " experince to nextLvl: " + expToNextLevel);
         return new Upgrade();
+    }
+
+    public void InvokeLevelUP(Upgrade upgrade)
+    {
+        OnLevelUP.Invoke(upgrade);
     }
 
 }

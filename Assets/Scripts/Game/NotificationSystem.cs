@@ -7,14 +7,22 @@ public class NotificationSystem
 {
     public delegate void Messege(string msg);
 
-    public void DebugMsg(string msg) 
+    private static event Messege DebugMessege;
+    private static event Messege UserMessege;
+
+    public static void Instantiate(Messege debugMessege, Messege userMessege)
     {
-        //вывод в консоль юнити
-        Debug.Log("DEBUG: " + msg); 
+        DebugMessege += debugMessege;
+        UserMessege += userMessege;
     }
 
-    public void UserMsg(string msg)
+    public static void DebugMsg(string msg) 
     {
-        Debug.Log("GAME: " + msg);
+        DebugMessege?.Invoke(msg);
+    }
+
+    public static void UserMsg(string msg)
+    {
+        UserMessege?.Invoke(msg);
     }
 }

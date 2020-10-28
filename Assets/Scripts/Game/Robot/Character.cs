@@ -8,6 +8,8 @@ public class Character
     public Health health;
     public Energy energy;
 
+    
+
     public Character(int maxHealth = 100, int maxEnergy = 100)
     {
         experience = new Experience();
@@ -21,11 +23,12 @@ public class Character
         health = null;
         energy = null;
     }
+
 }
 
 public class NPC : Character
 {
-
+    
 }
 
 public class PC : Character

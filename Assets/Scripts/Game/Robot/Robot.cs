@@ -2,27 +2,43 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Robot : PC, IControllable
+public class Robot : PC, IMoveable
 {
     public Robot(int maxHP = 100, int maxEnergy = 100)
     {
         health = new Health(maxHP);
         energy = new Energy(maxEnergy);
         experience = new RobotExperience();
+        experience.OnLevelUP += LevelUp;
     }
 
-    public void Action1()
+    ~Robot()
     {
-        throw new System.NotImplementedException();
+        experience.OnLevelUP -= LevelUp;
     }
 
-    public void Action2()
+    private void LevelUp(Experience.Upgrade upgrade)
     {
-        throw new System.NotImplementedException();
+        health.AddHP(upgrade.hpBuff);
+        energy.BoostEnergy(upgrade.energyBuff);
     }
 
-    public void Move(Vector2 dir, float speed)
+    public void Move(Direction dir)
     {
-        throw new System.NotImplementedException();
+        switch (dir) 
+        {
+            case Direction.Up:
+                NotificationSystem.DebugMsg("робот полетел вверх");
+                break;
+            case Direction.Down:
+                NotificationSystem.DebugMsg("робот полетел вниз");
+                break;
+            case Direction.Left:
+                NotificationSystem.DebugMsg("робот полетел влево");
+                break;
+            case Direction.Right:
+                NotificationSystem.DebugMsg("робот полетел вправо");
+                break;
+        }
     }
 }

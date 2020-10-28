@@ -6,28 +6,9 @@ using System;
 
 public class Health
 {
-    public int max
-    {
-        get
-        {
-            return max;
-        }
+    public int max;
 
-        set
-        {
-            if (!alive)
-            {
-                throw new Exception("");
-            }
-
-            max = value;
-        }
-
-    }
-
-    public int curHealth {
-        get; private set;
-    }
+    public int curHealth { get; private set; } = 100;
 
     public bool alive {
         get 
@@ -50,7 +31,13 @@ public class Health
 
     public void AddHP(int hp)
     {
-        if (curHealth + hp > max) 
+        max += hp;
+        curHealth += hp;
+    }
+
+    public void Heal(int hp)
+    {
+        if (curHealth + hp > max)
         {
             curHealth = max;
         }

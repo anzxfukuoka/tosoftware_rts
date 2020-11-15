@@ -13,7 +13,7 @@ public class PlacedBuilding : MonoBehaviour
 
     public void Place() 
     {
-        //
+        //prefab span at position
     }
 
     public void Upgrade() 

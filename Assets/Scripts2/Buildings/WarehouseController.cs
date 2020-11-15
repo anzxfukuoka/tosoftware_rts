@@ -4,23 +4,34 @@ using UnityEngine;
 
 public class WarehouseController
 {
-    Dictionary<Resource, int> _allResources;
+    List<Resource> _allResources;
 
-    private bool IsEnough(Dictionary<Resource, int> neededResources) 
+    private bool IsEnough(List<Resource> neededResources) 
     {
-        //...
-        return false;
+        for (int i = 0; i < _allResources.Count; i++) 
+        {
+            if (_allResources[i].HasEnough(neededResources[i].curAmount)) 
+            {
+                return false;
+            }
+        }
+        return true;
     }
 
-    public bool SubstractResources(Dictionary<Resource, int> neededResources)
+    public bool SubstractResources(List<Resource> neededResources)
     {
         if (IsEnough(neededResources))
         {
-            //*substract*
+            for (int i = 0; i < _allResources.Count; i++) 
+            {
+                _allResources[i].Extract(neededResources[i].curAmount);
+            }
+
+            return true;
         }
         else 
         {
-            throw new System.Exception("Not enough resources");
+            return false;
         }
     }
 

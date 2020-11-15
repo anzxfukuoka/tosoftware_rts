@@ -5,7 +5,7 @@ using UnityEngine;
 public class BuildingSettings
 {
     public string buildingName = "DefaultBuilding♥";
-    private Dictionary<Resource, int> _neededRes;
+    public List<Resource> neededRes { get; private set; }
 
     public BuildingSettings() 
     {
@@ -14,6 +14,6 @@ public class BuildingSettings
 
     public void Add(Resource res) 
     {
-        
+        neededRes.Add(res);
     }
 }

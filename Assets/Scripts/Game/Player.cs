@@ -11,7 +11,7 @@ public class Player : IControllable
     public int score { get; private set; }
 
     private Robot robot;
-    private Builder builder;
+    //private Builder builder;
 
     public Player(string name = "player")
     {
@@ -19,7 +19,7 @@ public class Player : IControllable
         this.name = name;
         
         robot = new Robot();
-        builder = new Builder();
+        //builder = new Builder();
 
         NotificationSystem.DebugMsg("player name: " + name);
         NotificationSystem.DebugMsg("player id: " + id);
@@ -48,15 +48,15 @@ public class Player : IControllable
             robot.Move(Direction.Right);
         }
 
-        else if (Input.GetKeyDown(KeyCode.F))
-        {
-            SmallBuilding smallBuilding = new SmallBuilding();
-            builder.Build(smallBuilding);
-        }
-        else if (Input.GetKeyDown(KeyCode.R))
-        {
-            StrongBuilding strongBuilding = new StrongBuilding();
-            builder.Build(strongBuilding);
-        }
+        //else if (Input.GetKeyDown(KeyCode.F))
+        //{
+        //    SmallBuilding smallBuilding = new SmallBuilding();
+        //    builder.Build(smallBuilding);
+        //}
+        //else if (Input.GetKeyDown(KeyCode.R))
+        //{
+        //    StrongBuilding strongBuilding = new StrongBuilding();
+        //    builder.Build(strongBuilding);
+        //}
     }
 }

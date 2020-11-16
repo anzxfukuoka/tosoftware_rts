@@ -4,16 +4,20 @@ using UnityEngine;
 
 public class BuildingBuilder
 {
-    public static BuildingBuilder instance;
+    private static BuildingBuilder _instance;
 
     private PlacedBuildings placedBuildings;
 
-    public BuildingBuilder GetInstance() 
+    public static BuildingBuilder Instance
     {
-        if (instance == null)
-            instance = new BuildingBuilder();
+        get
+        {
+            if (_instance == null)
+                _instance = new BuildingBuilder();
 
-        return instance;
+            return _instance;
+        }
+        
     }
 
     public BuildingBuilder() 

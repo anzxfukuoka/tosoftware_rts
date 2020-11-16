@@ -18,7 +18,11 @@ public class BuildingBuilder
 
     public BuildingBuilder() 
     {
-        placedBuildings = new PlacedBuildings();
+        placedBuildings = Resources.FindObjectsOfTypeAll<PlacedBuildings>()?[0];
+        if(placedBuildings == null)
+        {
+            throw new System.Exception("No PlacedBuildings in ResourceFolder");
+        }
     }
 
     public PlacedBuilding Build(WarehouseController warehouseController, BuildingSettings buildingSettings, BuildPoint buildPoint) 

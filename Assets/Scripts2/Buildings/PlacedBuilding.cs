@@ -9,7 +9,7 @@ public class PlacedBuilding : MonoBehaviour
     public Energy energy;
     public BuildPoint position;
 
-    private GameObject prefab;
+    private GameObject prefab => this.gameObject; 
 
     public void Place() 
     {

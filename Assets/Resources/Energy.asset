@@ -9,12 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06b04fabe17837b4e9f786898071b9ad, type: 3}
-  m_Name: PlacedBuildings
+  m_Script: {fileID: 11500000, guid: e06e078e8d18ec0478b38937e6db6aa8, type: 3}
+  m_Name: Energy
   m_EditorClassIdentifier: 
-  buildingsTypes:
-    _dictinary:
-    - Key: 
-      Value: {fileID: 0}
-    - Key: 
-      Value: {fileID: 0}
+  maxAmount: 0
+  resourceType: 0

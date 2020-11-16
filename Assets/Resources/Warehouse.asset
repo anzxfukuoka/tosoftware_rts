@@ -9,12 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06b04fabe17837b4e9f786898071b9ad, type: 3}
-  m_Name: PlacedBuildings
+  m_Script: {fileID: 11500000, guid: 658018aaa68c9134ca5d0e3a619d8af0, type: 3}
+  m_Name: Warehouse
   m_EditorClassIdentifier: 
-  buildingsTypes:
-    _dictinary:
-    - Key: 
-      Value: {fileID: 0}
-    - Key: 
-      Value: {fileID: 0}
+  _allResources:
+  - {fileID: 11400000, guid: c71b732c2fe5f1a43ba3ff1b4c710b47, type: 2}
+  - {fileID: 11400000, guid: 0e7daf115223cf744a2a685ac3a594ac, type: 2}

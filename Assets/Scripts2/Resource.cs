@@ -2,10 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Resource : MonoBehaviour
+public enum ResourceTypes
+{
+    Energy,
+    Scraps
+}
+
+
+public class Resource : ScriptableObject
 {
 
     public int maxAmount;
+    public ResourceTypes resourceType;
     public int curAmount
     {
         get

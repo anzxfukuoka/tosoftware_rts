@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(menuName = "Resources/Energy")]
 public class Energy : Resource
 {
 
@@ -14,6 +15,7 @@ public class Energy : Resource
     public Energy(int max = 100) : base(max)
     {
         curAmount = max;
+        resourceType = ResourceTypes.Energy;
 
     }
     public void ReturnEnergy(int returnedEnergy)

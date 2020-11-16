@@ -2,30 +2,48 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WarehouseController
+[CreateAssetMenu(menuName = "Resources/Warehouse")]
+public class WarehouseController : ScriptableObject
 {
-    List<Resource> _allResources;
+
+    [SerializeField] private List<Resource> _allResources;
 
     private bool IsEnough(List<Resource> neededResources) 
     {
-        for (int i = 0; i < _allResources.Count; i++) 
+        bool value = true;
+        neededResources.ForEach(delegate (Resource resource)
         {
-            if (_allResources[i].HasEnough(neededResources[i].curAmount)) 
+            bool found = false;
+            foreach(Resource res in _allResources)
             {
-                return false;
+                if (res.resourceType == resource.resourceType)
+                {
+                    value = value && res.HasEnough(resource.maxAmount);
+                    found = true;
+                    break;
+                }
             }
-        }
-        return true;
+            value = value && found;
+        });
+        
+        return value;
     }
 
     public bool SubstractResources(List<Resource> neededResources)
     {
         if (IsEnough(neededResources))
         {
-            for (int i = 0; i < _allResources.Count; i++) 
+            neededResources.ForEach(delegate (Resource resource)
             {
-                _allResources[i].Extract(neededResources[i].curAmount);
-            }
+                foreach (Resource res in _allResources)
+                {
+                    if (res.resourceType == resource.resourceType)
+                    {
+                        res.Extract(resource.maxAmount);
+                        break;
+                    }
+                }
+            });
 
             return true;
         }

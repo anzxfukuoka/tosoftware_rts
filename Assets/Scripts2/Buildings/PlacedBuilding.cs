@@ -26,6 +26,11 @@ public class PlacedBuilding : MonoBehaviour
         //
     }
 
+    public virtual void Instantiate()
+    {
+        GameObject.Instantiate(prefab, new Vector3(position.x, position.y, 1), Quaternion.identity, position.moduleParent);
+    }
+
     public virtual void OnPlace() 
     {
         throw new NotImplementedException();

@@ -32,6 +32,7 @@ public class BuildingBuilder
             string name = buildingSettings.buildingName;
             PlacedBuilding placedBuilding = placedBuildings.FindBuildingByName(name);
             placedBuilding.position = buildPoint;
+            placedBuilding.Instantiate();
 
             return placedBuilding;
         }

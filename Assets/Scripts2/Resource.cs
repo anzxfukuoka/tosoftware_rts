@@ -2,18 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum ResourceTypes
-{
-    Energy,
-    Scraps
-}
+//public enum ResourceTypes
+//{
+//    Energy,
+//    Scraps
+//}
 
 
 public class Resource : ScriptableObject
 {
 
     public int maxAmount;
-    public ResourceTypes resourceType;
+    //public ResourceTypes resourceType;
 
     public static int lastResourceId = 0;
 

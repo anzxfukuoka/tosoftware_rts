@@ -14,6 +14,9 @@ public class Resource : ScriptableObject
 
     public int maxAmount;
     public ResourceTypes resourceType;
+
+    public static int lastResourceId = 0;
+
     public int curAmount
     {
         get
@@ -37,8 +40,8 @@ public class Resource : ScriptableObject
     public Resource(int max = 100)
     {
         maxAmount = max;
-
     }
+
     public bool HasEnough(int needed)
     {
         if (curAmount - needed < 0)
@@ -48,13 +51,20 @@ public class Resource : ScriptableObject
 
         return true;
     }
+
     public void Add(int value)
     {
         curAmount += value;
 
     }
+
     public void Extract(int value)
     {
         curAmount -= value;
+    }
+
+    public string GetName() 
+    {
+        return this.GetType().Name;
     }
 }

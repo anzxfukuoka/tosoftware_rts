@@ -28,7 +28,8 @@ public class PlacedBuilding : MonoBehaviour
 
     public virtual void Instantiate()
     {
-        GameObject.Instantiate(prefab, new Vector3(position.x, position.y, 1), Quaternion.identity, position.moduleParent);
+        GameObject.Instantiate(prefab, position.ToVector2(), Quaternion.identity, position.moduleParent);
+        Debug.Log("Instantieted building at");
     }
 
     public virtual void OnPlace() 
@@ -43,6 +44,6 @@ public class PlacedBuilding : MonoBehaviour
 
     public void SetPrefab(GameObject prefab) 
     {
-        this.prefab = prefab;
+        //this.prefab = prefab;
     }
 }

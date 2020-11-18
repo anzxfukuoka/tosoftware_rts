@@ -15,7 +15,7 @@ public class Energy : Resource
     public Energy(int max = 100) : base(max)
     {
         curAmount = max;
-        resourceType = ResourceTypes.Energy;
+        //resourceType = ResourceTypes.Energy;
 
     }
     public void ReturnEnergy(int returnedEnergy)

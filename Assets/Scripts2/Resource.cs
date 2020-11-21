@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,31 +9,33 @@ using UnityEngine;
 //    Scraps
 //}
 
+//public ResourceTypes resourceType;
+
+// нахуя везде пихать сранный ScriptableObject блять
 
 public class Resource : ScriptableObject
 {
-
     public int maxAmount;
-    //public ResourceTypes resourceType;
 
-    public static int lastResourceId = 0;
+    private int _curAmount;
 
     public int curAmount
     {
-        get
+        get 
         {
-            return curAmount;
+            return _curAmount;
         }
 
         set
         {
-            curAmount = value;
+            if (value < 0)
+                _curAmount = 0;
 
-            if (curAmount < 0)
-                curAmount = 0;
-
-            if (curAmount > maxAmount)
-                curAmount = maxAmount;
+            else if (value > _curAmount)
+                _curAmount = maxAmount;
+            
+            else
+                _curAmount = value;
 
         }
     }

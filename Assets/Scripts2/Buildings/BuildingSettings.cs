@@ -1,19 +1,19 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BuildingSettings
+[CreateAssetMenu(menuName = "Buildings/BuildingSettings")]
+public class BuildingSettings : ScriptableObject
 {
     public string buildingName = "DefaultBuilding♥";
-    public List<Resource> neededRes { get; private set; }
 
-    public BuildingSettings() 
-    {
-        
-    }
+    public ResourcesData neededResources;
 
-    public void Add(Resource res) 
+    public GameObject prefab;
+
+    public void Init() 
     {
-        neededRes.Add(res);
+        neededResources.Init();
     }
 }

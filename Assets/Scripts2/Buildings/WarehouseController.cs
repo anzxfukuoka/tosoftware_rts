@@ -1,56 +1,79 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Resources/Warehouse")]
-public class WarehouseController : ScriptableObject
+/*
+ *  Паттерн Хранитель
+ *  класс Опекун
+ *  
+ *  класс контроля ресурсов
+ */
+
+public class WarehouseController
 {
+    [SerializeField]
+    private ResourcesData resourcesData;
 
-    [SerializeField] private List<Resource> _allResources;
+    public WarehouseController(ResourcesData resourcesData) 
+    {
+        this.resourcesData = resourcesData;
+        this.resourcesData.Init();
+    }
 
-    //private bool IsEnough(List<Resource> neededResources) 
-    //{
-    //    bool value = true;
-    //    neededResources.ForEach(delegate (Resource resource)
-    //    {
-    //        bool found = false;
-    //        foreach(Resource res in _allResources)
-    //        {
-    //            if (res.resourceType == resource.resourceType)
-    //            {
-    //                value = value && res.HasEnough(resource.maxAmount);
-    //                found = true;
-    //                break;
-    //            }
-    //        }
-    //        value = value && found;
-    //    });
-        
-    //    return value;
-    //}
+    // IsEnough
+    public bool Conteins(ResourcesData other)
+    {
+        if (!resourcesData.Equals(other))
+        {
+            throw new Exception("Uncomparable resources data");
+        }
 
-    //public bool SubstractResources(List<Resource> neededResources)
-    //{
-    //    if (IsEnough(neededResources))
-    //    {
-    //        neededResources.ForEach(delegate (Resource resource)
-    //        {
-    //            foreach (Resource res in _allResources)
-    //            {
-    //                if (res.resourceType == resource.resourceType)
-    //                {
-    //                    res.Extract(resource.maxAmount);
-    //                    break;
-    //                }
-    //            }
-    //        });
+        List<string> avableResourceTypes = resourcesData.avableResourceTypes;
 
-    //        return true;
-    //    }
-    //    else 
-    //    {
-    //        return false;
-    //    }
-    //}
+        for (int i = 0; i < avableResourceTypes.Count; i++) 
+        {
+            string type = avableResourceTypes[i];
+
+            int needAmount = other.resourcesDict[type].curAmount;
+
+            Resource res = resourcesData.GetResourceByType(type);
+
+            if (!res.HasEnough(needAmount)) 
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    public bool SubstractResources(ResourcesData other)
+    {
+        List<string> avableResourceTypes = resourcesData.avableResourceTypes;
+
+        if (this.Conteins(other)) 
+        {
+            for (int i = 0; i < avableResourceTypes.Count; i++) 
+            {
+                string type = avableResourceTypes[i];
+
+                int amount = other.resourcesDict[type].curAmount;
+
+                Resource res = resourcesData.GetResourceByType(type);
+
+                res.Extract(amount);
+            }
+
+            return true;
+        }
+
+        return false;
+    }
+
+    public void AddResource(string type) 
+    {
+        resourcesData.GetResourceByType(type).Add(100);
+    }
 
 }

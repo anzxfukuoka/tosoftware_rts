@@ -10,14 +10,25 @@ using UnityEngine;
  *  класс контроля ресурсов
  */
 
+[Serializable]
 public class WarehouseController
 {
     [SerializeField]
     private ResourcesData resourcesData;
 
-    public WarehouseController(ResourcesData resourcesData) 
+    //public WarehouseController()
+    //{
+    //    this.resourcesData.Init();
+    //}
+
+    //public WarehouseController(ResourcesData resourcesData) 
+    //{
+    //    this.resourcesData = resourcesData;
+    //    this.resourcesData.Init();
+    //}
+
+    public void Init() 
     {
-        this.resourcesData = resourcesData;
         this.resourcesData.Init();
     }
 
@@ -71,9 +82,9 @@ public class WarehouseController
         return false;
     }
 
-    public void AddResource(string type) 
+    public void AddResource(string type, int value) 
     {
-        resourcesData.GetResourceByType(type).Add(100);
+        resourcesData.GetResourceByType(type).Add(value);
     }
 
 }

@@ -19,25 +19,30 @@ public class BuildField : MonoBehaviour
         if (cellsPositions.Length != cellsCount)
         {
             Array.Resize(ref cellsPositions, cellsCount);
+            Debug.LogError("Вручную не менять");
         }
     }
 
-    public void Init(ref WarehouseController sourceWarehouseController) 
+    private void Start()
     {
         builder = new PlacedBuildingBuilder();
         placed = new PlacedBuilding[cellsCount];
+    }
 
+    public void SetWarehouseController(ref WarehouseController sourceWarehouseController) 
+    {
         this.warehouseController = sourceWarehouseController;
     }
 
     public void PlaceBuilding(BuildingSettings buildingSettings, BuildPoint buildPoint) 
     {
+        buildingSettings.Init();
+
         PlacedBuilding placeBuilding = builder
             .AddBuildingSettings(buildingSettings)
             .AddWarehouseController(ref warehouseController)
             .AddBuildPoint(buildPoint)
             .Build();
-
 
         int pos = buildPoint.x;
 

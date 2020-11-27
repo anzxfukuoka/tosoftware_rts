@@ -7,12 +7,10 @@ public class GameManager : MonoBehaviour
     // в будущем поместить в класс плеера
     // или еще куда
     // хз
-    WarehouseController playerWarehouseController; //testfield
-    // и это тоже
-    public ResourcesData resourcesData; //testfield
+    public WarehouseController playerWarehouseController; //testfield
 
     // пока испльзуется только координата х
-    // [0, 5]
+    // [0, 5] э x 
     public BuildPoint buildPoint = new BuildPoint(); //testfield 
     public BuildingSettings buildingSettings; //testfield 
 
@@ -21,15 +19,11 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        resourcesData.Init();
-
-        playerWarehouseController = new WarehouseController(resourcesData);
+        playerWarehouseController.Init();
         
-        playerWarehouseController.AddResource(typeof(Scraps).Name);
+        playerWarehouseController.AddResource(typeof(Scraps).Name, 100);
 
-        buildField.Init(ref playerWarehouseController);
-
-        buildingSettings.Init();
+        buildField.SetWarehouseController(ref playerWarehouseController);
     }
 
     // Update is called once per frame

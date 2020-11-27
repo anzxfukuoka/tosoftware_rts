@@ -24,14 +24,14 @@ public class PlacedBuildingBuilder
         
     }
 
-    public PlacedBuildingBuilder() 
-    {
-        //placedBuildings = Resources.FindObjectsOfTypeAll<PlacedBuildings>()?[0];
-        //if (placedBuildings == null)
-        //{
-        //    throw new System.Exception("No PlacedBuildings in ResourceFolder");
-        //}
-    }
+    //public PlacedBuildingBuilder() 
+    //{
+    //    //placedBuildings = Resources.FindObjectsOfTypeAll<PlacedBuildings>()?[0];
+    //    //if (placedBuildings == null)
+    //    //{
+    //    //    throw new System.Exception("No PlacedBuildings in ResourceFolder");
+    //    //}
+    //}
 
     public PlacedBuildingBuilder AddWarehouseController(ref WarehouseController sourceWarehouseController) 
     {
@@ -51,8 +51,18 @@ public class PlacedBuildingBuilder
         return this;
     }
 
-    public PlacedBuilding Build() 
+    public PlacedBuilding Build()
     {
+        if (sourceWarehouseController == null) 
+        {
+            throw new System.Exception("no source WarehouseController");
+        }
+
+        if (buildingSettings == null)
+        {
+            throw new System.Exception("no BuildingSettings");
+        }
+
         if (sourceWarehouseController.SubstractResources(buildingSettings.neededResources))
         {
             string name = buildingSettings.buildingName;

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[CreateAssetMenu(menuName = "Buildings/PlacedBuildings")]
+//[CreateAssetMenu(menuName = "Buildings/PlacedBuildings")]
 public class PlacedBuildings : ScriptableObject
 {
     [System.Serializable]

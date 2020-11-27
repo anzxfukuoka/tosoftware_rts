@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // в будущем поместить в класс плеера
-    // или еще куда
-    // хз
+    // ресурсы игрока
     public WarehouseController playerWarehouseController; //testfield
 
     // пока испльзуется только координата х

@@ -7,26 +7,24 @@ public class BuildField : MonoBehaviour
 {
     const int cellsCount = 5;
 
-    public Transform[] cellsPositions = new Transform[cellsCount];
+    public BuildingSpawnCell[] cells = new BuildingSpawnCell[cellsCount];
 
     private PlacedBuildingBuilder builder;
-    private PlacedBuilding[] placed;
 
     private WarehouseController warehouseController;
     
     private void OnValidate()
     {
-        if (cellsPositions.Length != cellsCount)
+        if (cells.Length != cellsCount)
         {
-            Array.Resize(ref cellsPositions, cellsCount);
+            Array.Resize(ref cells, cellsCount);
             Debug.LogError("Вручную не менять");
         }
     }
 
     private void Start()
     {
-        builder = new PlacedBuildingBuilder();
-        placed = new PlacedBuilding[cellsCount];
+        builder = PlacedBuildingBuilder.Instance;
     }
 
     public void SetWarehouseController(ref WarehouseController sourceWarehouseController) 
@@ -46,12 +44,9 @@ public class BuildField : MonoBehaviour
 
         int pos = buildPoint.x;
 
-        if (placed[pos] == null)
+        if (cells[pos].IsCellEmpty())
         {
-            placeBuilding.Instantiate(cellsPositions[pos]);
-            placed[pos] = placeBuilding;
-
-            Debug.Log(placed[pos]);
+            cells[pos].Set(placeBuilding);
         }
         else 
         {

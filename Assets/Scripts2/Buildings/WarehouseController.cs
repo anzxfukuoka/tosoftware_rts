@@ -13,6 +13,7 @@ using UnityEngine;
 [Serializable]
 public class WarehouseController
 {
+    //класс который хранит данные ресурсов
     [SerializeField]
     private ResourcesData resourcesData;
 
@@ -33,6 +34,7 @@ public class WarehouseController
     }
 
     // IsEnough
+    //сравнивает достаточно ли ресурсов
     public bool Conteins(ResourcesData other)
     {
         if (!resourcesData.Equals(other))
@@ -59,6 +61,7 @@ public class WarehouseController
         return true;
     }
 
+    //вычитает один набор ресурсов из других если набор совпадает
     public bool SubstractResources(ResourcesData other)
     {
         List<string> avableResourceTypes = resourcesData.avableResourceTypes;
@@ -81,10 +84,11 @@ public class WarehouseController
 
         return false;
     }
-
+    //она нужна для добовления ресурсов
+    //нуждается в переписке
     public void AddResource(string type, int value) 
     {
         resourcesData.GetResourceByType(type).Add(value);
     }
-
+    
 }

@@ -6,7 +6,7 @@ using UnityEngine;
  * Юнити предоставляет интерфейс к своей системе ввода.
  * Класс InputController адаптирует ее для этой игры
  * 
- * Всего в игре доступны 2 вида ввода - кнопками (мышь, клавятура, кнопки на гемпаде) и осями (движение мыши, джойстик на геймпада)
+ * Всего в игре доступны 2 вида ввода - кнопками (мышь, клавиатура, кнопки на гемпаде) и осями (движение мыши, джойстик на геймпада)
  * Типы ввода кнопками перечисленны в InputButtonType.
  * 
  * На классы, которые зависят от ввода нужно повесить IInputListener
@@ -94,24 +94,25 @@ public class InputController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.F))
         {
+            //отправляет событие вместе с типом кнпок 
             InputButtonEvent?.Invoke(new InputButtonEventArgs(InputButtonType.ButtonA));
         }
         else if (Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.R))
         {
             InputButtonEvent?.Invoke(new InputButtonEventArgs(InputButtonType.ButtonB));
         }
-
+ 
         else if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
             InputButtonEvent?.Invoke(new InputButtonEventArgs(InputButtonType.Up));
         }
         else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) 
         {
-            InputButtonEvent?.Invoke(new InputButtonEventArgs(InputButtonType.Left));
+            InputButtonEvent?.Invoke(new InputButtonEventArgs(InputButtonType.Down));
         }
         else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
-            InputButtonEvent?.Invoke(new InputButtonEventArgs(InputButtonType.Right));
+            InputButtonEvent?.Invoke(new InputButtonEventArgs(InputButtonType.Left));
         }
         else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {

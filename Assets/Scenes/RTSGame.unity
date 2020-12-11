@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.1273174, g: 0.13414761, b: 0.12107885, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -491,6 +491,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1259430955}
   - component: {fileID: 1259430954}
+  - component: {fileID: 1259430957}
   - component: {fileID: 1259430956}
   m_Layer: 0
   m_Name: RTS player
@@ -572,9 +573,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 1259430953}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edff13ab17f53e0469aa6d3e2d39b11e, type: 3}
+  m_Script: {fileID: 11500000, guid: 0d347b5b59afa5349add8101f216f0e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 3
+--- !u!114 &1259430957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1259430953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65fa39e42495b68429845d3cd5bfe10e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.1
 --- !u!1001 &1414526018
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1131,7 +1146,7 @@ GameObject:
   - component: {fileID: 3396411878914391762}
   m_Layer: 0
   m_Name: SpawnCell
-  m_TagString: Untagged
+  m_TagString: BuildCell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

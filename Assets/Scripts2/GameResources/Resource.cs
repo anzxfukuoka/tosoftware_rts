@@ -13,6 +13,7 @@ using UnityEngine;
 
 // нахуя везде пихать сранный ScriptableObject блять
 
+[Serializable]
 public class Resource : ScriptableObject
 {
     public int maxAmount;

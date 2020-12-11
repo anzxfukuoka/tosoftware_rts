@@ -97,24 +97,24 @@ public class InputController : MonoBehaviour
             //отправляет событие вместе с типом кнпок 
             InputButtonEvent?.Invoke(new InputButtonEventArgs(InputButtonType.ButtonA));
         }
-        else if (Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.R))
+        if (Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.R))
         {
             InputButtonEvent?.Invoke(new InputButtonEventArgs(InputButtonType.ButtonB));
         }
  
-        else if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
             InputButtonEvent?.Invoke(new InputButtonEventArgs(InputButtonType.Up));
         }
-        else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) 
+        if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) 
         {
             InputButtonEvent?.Invoke(new InputButtonEventArgs(InputButtonType.Down));
         }
-        else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             InputButtonEvent?.Invoke(new InputButtonEventArgs(InputButtonType.Left));
         }
-        else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             InputButtonEvent?.Invoke(new InputButtonEventArgs(InputButtonType.Right));
         }

@@ -1,8 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Resources/Energy")]
+//[CreateAssetMenu(menuName = "Resources/Energy")]
+[Serializable]
 public class Energy : Resource
 {
 

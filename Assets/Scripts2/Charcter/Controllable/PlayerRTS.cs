@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class PlayerRTS : ControllableCharacter
 {
-    public float speed = 1;
+
+    public float moveSpeed = 1;
+    public float rotateSpeed = 1;
 
     public override void OnInputButton(InputController.InputButtonEventArgs args)
     {
@@ -20,24 +22,22 @@ public class PlayerRTS : ControllableCharacter
 
             case InputButtonType.Up:
                 Debug.Log("Up pressed");
-                Move(Vector3.up * speed * Time.deltaTime);
+                Move(Vector3.up * moveSpeed * Time.deltaTime);
                 break;
 
             case InputButtonType.Down:
                 Debug.Log("Down pressed");
-                Move(Vector3.down * speed * Time.deltaTime);
+                Move(Vector3.down * moveSpeed * Time.deltaTime);
                 break;
 
             case InputButtonType.Left:
                 Debug.Log("Left pressed");
-                Move(Vector3.left * speed * Time.deltaTime);
+                Move(Vector3.left * moveSpeed * Time.deltaTime);
                 break;
 
             case InputButtonType.Right:
                 Debug.Log("Right pressed");
-                Move(Vector3.right * speed * Time.deltaTime);
-
-                    
+                Move(Vector3.right * moveSpeed * Time.deltaTime);        
                 break;
         }
 

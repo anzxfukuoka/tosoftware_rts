@@ -84,7 +84,8 @@ public class WarehouseController
 
         return false;
     }
-    //она нужна для добовления ресурсов
+    
+    //нужна для добовления ресурсов
     //нуждается в переписке
     public void AddResource(string type, int value) 
     {

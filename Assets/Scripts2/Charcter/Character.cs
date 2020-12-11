@@ -2,16 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//моб
-public class Character : MonoBehaviour, IMovable
+//mob
+//[RequireComponent(typeof(DamageReciver))]
+public class Character : MonoBehaviour, IMovable, IDamagaReciver
 {
+    protected Health health = new Health();
+    protected DamageReciver damageReciver;
 
-    public virtual void Start() 
+    public void Start() 
     {
         InputController.AddInputListener((IInputListener)this);
+        
+        damageReciver = GetComponent<DamageReciver>();
+        damageReciver.SetReciver(this);
     }
 
-    public virtual void Move(Vector3 direction)
+    public void Move(Vector3 direction)
     {
         gameObject.transform.Translate(direction);
     }
@@ -19,5 +25,21 @@ public class Character : MonoBehaviour, IMovable
     public void Rotate(Vector3 angle)
     {
         gameObject.transform.Rotate(angle);    
+    }
+
+    public virtual void OnDamage(int damage) 
+    {
+        health.Hit(damage);
+
+        if (!health.alive) 
+        {
+            OnDeath();
+        }
+    }
+
+    public virtual void OnDeath()
+    {
+        /* -_- */
+        //throw new System.NotImplementedException();
     }
 }

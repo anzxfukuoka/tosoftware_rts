@@ -3,15 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(DamageReciver))]
-public class PlayerSpaceShip : ControllableCharacter
+public class PlayerSpaceShip : SpaceShip, IInputListener
 {
-    public Weapon weapon1; 
-    public Weapon weapon2;
-
     public float moveSpeed = 2f;
     public float rotateSpeed = 2f;
 
-    public override void OnInputButton(InputController.InputButtonEventArgs args)
+    public override void Start()
+    {
+        base.Start();
+
+        InputController.AddInputListener(this);
+    }
+
+    public void OnInputAxis(InputController.InputAxisEventArgs args)
+    {
+        //throw new System.NotImplementedException();
+    }
+
+    public void OnInputButton(InputController.InputButtonEventArgs args)
     {
         switch (args.type)
         {
@@ -47,4 +56,12 @@ public class PlayerSpaceShip : ControllableCharacter
         }
 
     }
+
+    public Vector3 GetPos()
+
+    {
+        return gameObject.transform.position;
+
+    }
+
 }

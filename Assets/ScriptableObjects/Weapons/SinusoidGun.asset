@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3729b58274d4504fb785b4273a1faaa, type: 3}
+  m_Name: SinusoidGun
+  m_EditorClassIdentifier: 
+  weaponName: "\u041F\u044C\u044F\u043D\u0430\u044F \u043F\u0443\u0448\u043A\u0430"
+  damagePower: 0
+  energy: {fileID: 0}
+  bulletPrefab: {fileID: 4278915702487990190, guid: f7840dcb4a0059c41b81a0b68c84e77b,
+    type: 3}

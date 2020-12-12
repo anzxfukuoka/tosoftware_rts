@@ -11,9 +11,15 @@ using UnityEngine;
  * на коллайдере должен стоять isTrigger = true
  */
 
+
+
 public abstract class DamageProducer : MonoBehaviour
 {
-    public string[] damageReciversTags = new string[2];
+
+    public string producerTag;
+
+
+    public string[] damageReciversTags;
 
     private int damagePower = 1;
     private int damageMultiplier = 1;
@@ -37,10 +43,15 @@ public abstract class DamageProducer : MonoBehaviour
 
     protected void ProcessColissions(GameObject other)
     {
+        if (gameObject.tag == producerTag)
+        {
+            return;
+        }
         if (damageReciversTags.Length > 0)
         {
             for (int i = 0; i < damageReciversTags.Length; i++)
             {
+                
                 if (other.tag == damageReciversTags[i])
                 {
                     ProduceDamage(other);
@@ -50,7 +61,9 @@ public abstract class DamageProducer : MonoBehaviour
         else
         {
             ProduceDamage(other);
+           
         }
+
     }
 
     protected void ProduceDamage(GameObject reciver) 

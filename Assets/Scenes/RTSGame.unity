@@ -576,7 +576,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d347b5b59afa5349add8101f216f0e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+<<<<<<< HEAD:Assets/scene.unity
+  speed: 2
+=======
+  moveSpeed: 4
+  rotateSpeed: 3
 --- !u!114 &1259430957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -590,6 +594,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.1
+>>>>>>> 0b19ba0c00363289fe4759c3595de7b257b3e81f:Assets/Scenes/RTSGame.unity
 --- !u!1001 &1414526018
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -2,41 +2,72 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BuildingBuilder
+public class PlacedBuildingBuilder
 {
-    private static BuildingBuilder _instance;
+    private static PlacedBuildingBuilder _instance;
 
     private PlacedBuildings placedBuildings;
 
-    public static BuildingBuilder Instance
+    WarehouseController sourceWarehouseController;
+    BuildingSettings buildingSettings;
+    BuildPoint buildPoint;
+
+    public static PlacedBuildingBuilder Instance
     {
         get
         {
             if (_instance == null)
-                _instance = new BuildingBuilder();
+                _instance = new PlacedBuildingBuilder();
 
             return _instance;
         }
         
     }
 
-    public BuildingBuilder() 
+    //public PlacedBuildingBuilder() 
+    //{
+    //    //placedBuildings = Resources.FindObjectsOfTypeAll<PlacedBuildings>()?[0];
+    //    //if (placedBuildings == null)
+    //    //{
+    //    //    throw new System.Exception("No PlacedBuildings in ResourceFolder");
+    //    //}
+    //}
+
+    public PlacedBuildingBuilder AddWarehouseController(ref WarehouseController sourceWarehouseController) 
     {
-        placedBuildings = Resources.FindObjectsOfTypeAll<PlacedBuildings>()?[0];
-        if(placedBuildings == null)
-        {
-            throw new System.Exception("No PlacedBuildings in ResourceFolder");
-        }
+        this.sourceWarehouseController = sourceWarehouseController;
+        return this;
     }
 
-    public PlacedBuilding Build(WarehouseController warehouseController, BuildingSettings buildingSettings, BuildPoint buildPoint) 
+    public PlacedBuildingBuilder AddBuildingSettings(BuildingSettings buildingSettings) 
     {
-        if (warehouseController.SubstractResources(buildingSettings.neededRes))
+        this.buildingSettings = buildingSettings;
+        return this;
+    }
+
+    public PlacedBuildingBuilder AddBuildPoint(BuildPoint buildPoint) 
+    {
+        this.buildPoint = buildPoint;
+        return this;
+    }
+
+    public PlacedBuilding Build()
+    {
+        if (sourceWarehouseController == null) 
+        {
+            throw new System.Exception("no source WarehouseController");
+        }
+
+        if (buildingSettings == null)
+        {
+            throw new System.Exception("no BuildingSettings");
+        }
+
+        if (sourceWarehouseController.SubstractResources(buildingSettings.neededResources))
         {
             string name = buildingSettings.buildingName;
-            PlacedBuilding placedBuilding = placedBuildings.FindBuildingByName(name);
-            placedBuilding.position = buildPoint;
-            placedBuilding.Instantiate();
+            PlacedBuilding placedBuilding = buildingSettings.prefab.GetComponent<PlacedBuilding>(); //placedBuildings.FindBuildingByName(name)
+            placedBuilding.CreatePlacedBuildingData(buildPoint);
 
             return placedBuilding;
         }

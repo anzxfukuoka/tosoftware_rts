@@ -3,33 +3,46 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Паттерн Хранитель
+ * Опекун
+ */
+
 public class PlacedBuilding : MonoBehaviour
 {
-    public Health health;
-    public Energy energy;
-    public BuildPoint position;
+    public PlacedBuildingData placedBuildingData;
 
-    private GameObject prefab => this.gameObject; 
+    private GameObject prefab => this.gameObject;
 
-    public void Place() 
+    public void CreatePlacedBuildingData(BuildPoint buildPoint) 
     {
-        //prefab span at position
+        placedBuildingData = new PlacedBuildingData();
+
+        placedBuildingData.health = new Health();
+        placedBuildingData.energy = new Energy();
+        placedBuildingData.experience = new Experience();
+        placedBuildingData.buildPoint = buildPoint;
     }
 
     public void Upgrade() 
     {
-        ///
+        // placedBuildingData.experience -> upgrade
     }
 
     public void Remove() 
     {
-        //
+        // -_-
     }
 
-    public virtual void Instantiate()
+    public virtual void Instantiate(Transform parent)
     {
-        GameObject.Instantiate(prefab, position.ToVector2(), Quaternion.identity, position.moduleParent);
-        Debug.Log("Instantieted building at");
+        //Instantiate(prefab, placedBuildingData.buildPoint.ToVector2(), 
+        //    Quaternion.identity, 
+        //    placedBuildingData.buildPoint.moduleParent);
+
+        Instantiate(prefab, parent);
+
+        Debug.Log("Instantieted building at buildpoint " + placedBuildingData.buildPoint);
     }
 
     public virtual void OnPlace() 

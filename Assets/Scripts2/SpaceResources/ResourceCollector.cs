@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ResourceCollector : CollisionProcesser
 {
-    private delegate void OnCollect(float resource);
+    private delegate void OnCollect(int resource);
     private event OnCollect onCollectEvent;
 
     public void SetCollector(IResourceCollector collector) 
@@ -33,5 +33,5 @@ public class ResourceCollector : CollisionProcesser
 
 public interface IResourceCollector 
 {
-    void OnCollect(float resource);
+    void OnCollect(int resource);
 }

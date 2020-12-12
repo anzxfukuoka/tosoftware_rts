@@ -33,6 +33,8 @@ public abstract class Character : MonoBehaviour, IMovable
 
 public abstract class SpaceShip : Character, IDamagaReciver, IResourceCollector
 {
+    public int resourcesCount { get; private set; } = 0;
+
     protected Health health = new Health();
     
     protected DamageReciver damageReciver;
@@ -73,8 +75,10 @@ public abstract class SpaceShip : Character, IDamagaReciver, IResourceCollector
         //throw new System.NotImplementedException();
     }
 
-    public void OnCollect(float resource)
+    public void OnCollect(int resource)
     {
+        resourcesCount += resource;
         Debug.Log("Resource collected +" + resource);
+        Debug.Log(gameObject.name + " resources count: " + resourcesCount);
     }
 }

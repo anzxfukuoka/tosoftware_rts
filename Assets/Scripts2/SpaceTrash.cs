@@ -9,15 +9,15 @@ public class SpaceTrash : PickableSpaceThing
 
 public abstract class PickableSpaceThing : MonoBehaviour, IPickable
 {
-    public float resource = 1;
+    public int resource = 4;
 
     public void PickUp()
     {
-        Debug.Log("#");
+        Debug.Log("Resource Picked");
         Destroy(gameObject);
     }
 
-    public float GetResource() 
+    public int GetResource() 
     {
         return this.resource;
     }

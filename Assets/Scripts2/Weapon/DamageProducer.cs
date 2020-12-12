@@ -11,7 +11,7 @@ using UnityEngine;
  * на коллайдере должен стоять isTrigger = true
  */
 
-public abstract class DamageProducer : MonoBehaviour
+public abstract class DamageProducer : CollisionProcesser
 {
     private string producerTag;
 
@@ -42,7 +42,7 @@ public abstract class DamageProducer : MonoBehaviour
         ProcessColissions(other);
     }
 
-    protected void ProcessColissions(GameObject other)
+    protected override void ProcessColissions(GameObject other)
     {
         if (other.tag == producerTag)
         {

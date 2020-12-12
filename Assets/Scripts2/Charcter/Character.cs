@@ -31,10 +31,12 @@ public abstract class Character : MonoBehaviour, IMovable
     }
 }
 
-public abstract class SpaceShip : Character, IDamagaReciver 
+public abstract class SpaceShip : Character, IDamagaReciver, IResourceCollector
 {
     protected Health health = new Health();
+    
     protected DamageReciver damageReciver;
+    protected ResourceCollector resourceCollector;
 
     public Weapon weapon1;
     public Weapon weapon2;
@@ -45,6 +47,9 @@ public abstract class SpaceShip : Character, IDamagaReciver
 
         damageReciver = GetComponent<DamageReciver>();
         damageReciver.SetReciver(this);
+
+        resourceCollector = GetComponent<ResourceCollector>();
+        resourceCollector.SetCollector(this);
     }
     public override void Update()
     {
@@ -66,5 +71,10 @@ public abstract class SpaceShip : Character, IDamagaReciver
     {
         /* -_- */
         //throw new System.NotImplementedException();
+    }
+
+    public void OnCollect(float resource)
+    {
+        Debug.Log("Resource collected +" + resource);
     }
 }

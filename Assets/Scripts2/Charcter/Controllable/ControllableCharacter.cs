@@ -2,8 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/* не нужен */
+
 public class ControllableCharacter : Character, IInputListener
 {
+    public override void Start()
+    {
+        base.Start();
+        InputController.AddInputListener(this);
+    }
+
     public virtual void OnInputAxis(InputController.InputAxisEventArgs args)
     {
         

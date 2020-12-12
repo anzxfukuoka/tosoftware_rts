@@ -4,17 +4,11 @@ using UnityEngine;
 
 //mob
 //[RequireComponent(typeof(DamageReciver))]
-public class Character : MonoBehaviour, IMovable, IDamagaReciver
+public abstract class Character : MonoBehaviour, IMovable
 {
-    protected Health health = new Health();
-    protected DamageReciver damageReciver;
-
-    public void Start() 
+    public virtual void Start() 
     {
-        InputController.AddInputListener((IInputListener)this);
         
-        damageReciver = GetComponent<DamageReciver>();
-        damageReciver.SetReciver(this);
     }
 
     public void Move(Vector3 direction)
@@ -26,12 +20,26 @@ public class Character : MonoBehaviour, IMovable, IDamagaReciver
     {
         gameObject.transform.Rotate(angle);    
     }
+}
 
-    public virtual void OnDamage(int damage) 
+public abstract class SpaceShip : Character, IDamagaReciver 
+{
+    protected Health health = new Health();
+    protected DamageReciver damageReciver;
+
+    public override void Start()
+    {
+        base.Start();
+
+        damageReciver = GetComponent<DamageReciver>();
+        damageReciver.SetReciver(this);
+    }
+
+    public virtual void OnDamage(int damage)
     {
         health.Hit(damage);
 
-        if (!health.alive) 
+        if (!health.alive)
         {
             OnDeath();
         }

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerRTS : ControllableCharacter
 {
-
     public float moveSpeed = 1;
     public float rotateSpeed = 1;
 

@@ -15,6 +15,7 @@ public abstract class Bullet : WeaponShit
 
     protected override void OnDamaged(GameObject other)
     {
-        Destroy(gameObject);
+        Debug.Log("DamageDelt");
+        //Destroy(gameObject);
     }
 }

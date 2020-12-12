@@ -6,6 +6,9 @@ using UnityEngine;
 //[RequireComponent(typeof(DamageReciver))]
 public abstract class Character : MonoBehaviour, IMovable
 {
+    public float moveSpeed = 2f;
+    public float rotateSpeed = 2f;
+
     public virtual void Start() 
     {
         
@@ -23,14 +26,19 @@ public abstract class Character : MonoBehaviour, IMovable
 
     public void Rotate(Vector3 angle)
     {
-        gameObject.transform.Rotate(angle);    
+        //gameObject.transform.Rotate(angle);
+        gameObject.transform.rotation = Quaternion.Euler(gameObject.transform.rotation.eulerAngles + angle);
     }
 }
 
-public abstract class SpaceShip : Character, IDamagaReciver 
+public abstract class SpaceShip : Character, IDamagaReciver, IResourceCollector
 {
+    public int resourcesCount { get; private set; } = 0;
+
     protected Health health = new Health();
+    
     protected DamageReciver damageReciver;
+    protected ResourceCollector resourceCollector;
 
     public Weapon weapon1;
     public Weapon weapon2;
@@ -41,6 +49,9 @@ public abstract class SpaceShip : Character, IDamagaReciver
 
         damageReciver = GetComponent<DamageReciver>();
         damageReciver.SetReciver(this);
+
+        resourceCollector = GetComponent<ResourceCollector>();
+        resourceCollector.SetCollector(this);
     }
     public override void Update()
     {
@@ -62,5 +73,12 @@ public abstract class SpaceShip : Character, IDamagaReciver
     {
         /* -_- */
         //throw new System.NotImplementedException();
+    }
+
+    public void OnCollect(int resource)
+    {
+        resourcesCount += resource;
+        Debug.Log("Resource collected +" + resource);
+        Debug.Log(gameObject.name + " resources count: " + resourcesCount);
     }
 }

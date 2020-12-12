@@ -4,10 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(DamageReciver))]
 public class EnemySpaceShip : SpaceShip 
-
 {
-    public float speed;
-
     private float lastAngle = 0;
 
     public float shootSpeed = 1;
@@ -19,17 +16,19 @@ public class EnemySpaceShip : SpaceShip
     {
         base.Update();
         Vector3 dir = player.GetPos() - gameObject.transform.position;
-        Move  (Vector3.up*speed);
-        float da = Vector3.SignedAngle(Vector3.up, dir, Vector3.forward)- lastAngle;
-        Rotate(Vector3.forward*da);
+        Move  (Vector3.up * moveSpeed);
+        float da = Vector3.SignedAngle(Vector3.up, dir, Vector3.forward) - lastAngle;
+        Rotate(Vector3.forward * rotateSpeed * da);
         lastAngle = Vector3.SignedAngle(Vector3.up, dir, Vector3.forward);
+        
         if (time >= shootSpeed)
         {
             weapon1.Use(transform);
+            time = 0;
         }
         else 
         {
-            //weapon1.Use(transform);
+            time += Time.deltaTime;
         }
 
     }
@@ -39,6 +38,6 @@ public class EnemySpaceShip : SpaceShip
 
         Debug.Log("враг здох");
         
-        //Destroy(gameObject);
+        Destroy(gameObject);
     }
 }

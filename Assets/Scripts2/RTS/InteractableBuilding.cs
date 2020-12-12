@@ -18,6 +18,7 @@ public class InteractableBuilding : Selectable
         StopAllCoroutines();
     }
 
+    bool _hasBuilding = false;
     IEnumerator CheckForInput()
     {
         while (true)
@@ -26,6 +27,11 @@ public class InteractableBuilding : Selectable
             {
                 ActionController.Action("Upgrade");
                 Debug.LogError("Upgrade");
+                if (!_hasBuilding)
+                {
+                    UpActionSet();
+                }
+                _hasBuilding = true;
             }
             yield return null;
         }

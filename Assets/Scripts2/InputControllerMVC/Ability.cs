@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Actions/Ablities/Default", fileName = "DefaultAlility")]
+
 public class Ability : ScriptableObject
 {
     [SerializeField] protected string _name = "defaultAbility";

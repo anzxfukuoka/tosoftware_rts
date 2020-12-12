@@ -19,11 +19,41 @@ public class Selectable : MonoBehaviour, IPointerClickHandler
         }
 
     }
+
+    private Building _correspondingBuilding;
+    public Building correspondingBuilding
+    {
+        get
+        {
+            if (_correspondingBuilding == null)
+            {
+                _correspondingBuilding = GetComponentInChildren<Building>();
+            }
+            return _correspondingBuilding;
+        }
+        set
+        {
+            _correspondingBuilding = value;
+        }
+    }
    
     [SerializeField] private int _actionSet = 0;
-    public int ActionSet => _actionSet;
+    public int ActionSet
+    {
+        get
+        {
+            return _actionSet;
+        }
+        set
+        {
+            _actionSet = value;
+            ActionController.SetUpInteractable(value);
+        }
+    } 
 
     public bool isSelected => selected == this;
+
+    public void UpActionSet() => ActionSet++;
 
     void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
     {

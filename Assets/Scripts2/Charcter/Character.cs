@@ -6,6 +6,9 @@ using UnityEngine;
 //[RequireComponent(typeof(DamageReciver))]
 public abstract class Character : MonoBehaviour, IMovable
 {
+    public float moveSpeed = 2f;
+    public float rotateSpeed = 2f;
+
     public virtual void Start() 
     {
         
@@ -23,7 +26,8 @@ public abstract class Character : MonoBehaviour, IMovable
 
     public void Rotate(Vector3 angle)
     {
-        gameObject.transform.Rotate(angle);    
+        //gameObject.transform.Rotate(angle);
+        gameObject.transform.rotation = Quaternion.Euler(gameObject.transform.rotation.eulerAngles + angle);
     }
 }
 

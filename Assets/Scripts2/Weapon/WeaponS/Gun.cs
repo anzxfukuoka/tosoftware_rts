@@ -12,7 +12,8 @@ public class Gun : Weapon
         Debug.Log("Gun shoots GunBullet");
 
         Bullet bullet = Instantiate(bulletPrefab);
-        bullet.SetDamageMultiplier(10);
         bullet.SetTransform(ref transform);
+        bullet.SetProducerTag(transform.gameObject.tag);
+        bullet.SetDamageMultiplier(10);
     }
 }

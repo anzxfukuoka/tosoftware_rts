@@ -5,9 +5,16 @@ using UnityEngine;
 public class InteractableBuilding : Selectable
 {
     [SerializeField] private KeyCode _upgradeButton;
+    [SerializeField] private int _maxUpgradeLvl = 6;
 
+    private int _curUpgradeLvl;
+    
     protected override void Select()
     {
+        if(_curUpgradeLvl > _maxUpgradeLvl)
+        {
+            return;
+        }
         base.Select();
         StartCoroutine(CheckForInput());
     }
@@ -21,7 +28,7 @@ public class InteractableBuilding : Selectable
     bool _hasBuilding = false;
     IEnumerator CheckForInput()
     {
-        while (true)
+        while (_curUpgradeLvl <= _maxUpgradeLvl)
         {
             if (Input.GetKeyDown(_upgradeButton))
             {
@@ -32,9 +39,11 @@ public class InteractableBuilding : Selectable
                     UpActionSet();
                 }
                 _hasBuilding = true;
+                _curUpgradeLvl++;
             }
             yield return null;
         }
+        DeSelect();
     }
 
 

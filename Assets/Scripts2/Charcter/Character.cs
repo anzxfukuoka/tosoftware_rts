@@ -11,6 +11,11 @@ public abstract class Character : MonoBehaviour, IMovable
         
     }
 
+    public virtual void Update() 
+    {
+
+    }
+
     public void Move(Vector3 direction)
     {
         gameObject.transform.Translate(direction);
@@ -26,6 +31,9 @@ public abstract class SpaceShip : Character, IDamagaReciver
 {
     protected Health health = new Health();
     protected DamageReciver damageReciver;
+
+    public Weapon weapon1;
+    public Weapon weapon2;
 
     public override void Start()
     {

@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/* не нужен */
-
 public class ControllableCharacter : Character, IInputListener
 {
     public override void Start()

@@ -5,9 +5,6 @@ using UnityEngine;
 [RequireComponent(typeof(DamageReciver))]
 public class PlayerSpaceShip : SpaceShip, IInputListener
 {
-    public Weapon weapon1;
-    public Weapon weapon2;
-
     public float moveSpeed = 2f;
     public float rotateSpeed = 2f;
 

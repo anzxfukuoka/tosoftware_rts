@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 0}
-  m_Name: SimpleLaser
+  m_Name: LaserGun
   m_EditorClassIdentifier: Assembly-CSharp::LaserGun
-  weaponName: Laser
-  damagePower: 100
+  weaponName: LaserGun
+  damagePower: 0
   energy: {fileID: 0}
   laserPrefab: {fileID: 6250198939816926964, guid: b3481f7ce52afd64786cc9361f6e85ac,
     type: 3}

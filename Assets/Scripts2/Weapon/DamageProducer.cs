@@ -13,7 +13,7 @@ using UnityEngine;
 
 public abstract class DamageProducer : MonoBehaviour
 {
-    public string[] damageReciversTags = new string[2];
+    public string[] damageReciversTags;
 
     private int damagePower = 1;
     private int damageMultiplier = 1;

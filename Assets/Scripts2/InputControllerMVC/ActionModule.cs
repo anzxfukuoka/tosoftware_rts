@@ -49,6 +49,17 @@ public class ActionModule : ScriptableObject
         return null;
     }
 
+    public Ability GetAbility(int abilityIndex, int abilitySetIndex)
+    {
+        AbilitySet set = abilitySetIndex < _abilitySets.Count ? _abilitySets[abilitySetIndex] : null;
+        if (set != null)
+        {
+            return abilityIndex < set.abilitySet.Count ? set.abilitySet[abilityIndex] : null;
+        }
+        Debug.LogError("No ability set is indexed by " + abilitySetIndex);
+        return null;
+    }
+
     public Ability GetMove(int abilitySetIndex)
     {
         return _abilitySets[abilitySetIndex].abilitySet[0];

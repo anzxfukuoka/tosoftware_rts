@@ -16,19 +16,28 @@ public class ActionController : MonoBehaviour
         AbilityAction_01,
         AbilityAction_02
     }
-    public static void Action(Vector3 targetPos, int actionSet)
+    private static int _abilitySetIndex;
+
+    public static void SetUpInteractable(int ablitySetIndex)
     {
-        ActionModule.Instance.GetMove(actionSet).DoAction();
+        _abilitySetIndex = ablitySetIndex;
+        //setUp UI for ActionSet
+    }
+
+    public static void Action(Vector3 targetPos)
+    {
+        ActionModule.Instance.GetMove(_abilitySetIndex).DoAction();
     }
 
 
-    public static void Action(BuildingSettings buildingSettings, int actionSet)
+    public static void Action(BuildingSettings buildingSettings)
     {
 
     }
 
-    public static void Action(string abilityName, int actionSet)
+    public static void Action(string abilityName)
     {
+        (ActionModule.Instance.GetAbility(abilityName, _abilitySetIndex)).DoAction();
 
     }
 

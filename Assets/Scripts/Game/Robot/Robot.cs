@@ -41,4 +41,20 @@ public class Robot : PC, IMoveable
                 break;
         }
     }
+
+    public void SetUp(int maxHP = 100, int maxEnergy = 100)
+    {
+        health = new Health(maxHP);
+        energy = new Energy(maxEnergy);
+        experience = new RobotExperience();
+        experience.OnLevelUP += LevelUp;
+    }
+
+    void Start()
+    {
+        SetUp();
+        Debug.Log(experience.curExperience + " " + experience.curLevel + " " + health.curHealth + " ");
+        experience.AddExperience(100);
+        Debug.Log(experience.curExperience + " " + experience.curLevel + " " + health.curHealth + " ");
+    }
 }

@@ -14,13 +14,11 @@ public class PlayerTraffic : Robot
 
     private Vector2 movement;
 
-   IEnumerator Update()
+    void Update()
     {
-        while (true)
-        {
-            CheckInput();
-            yield return null;
-        }
+
+        CheckInput();
+
     }
 
     void CheckInput()

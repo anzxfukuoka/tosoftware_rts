@@ -2,32 +2,42 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Level
+public enum Difficulty 
 {
-    public class LevelBuilder : MonoBehaviour
+    Easy,
+    Normal,
+    Hard
+}
+
+public abstract class LevelBuilder
+{
+    public abstract Level BuildLevel();
+}
+
+public abstract class Level 
+{
+    public abstract void Init();
+
+    public abstract void StartLevel();
+}
+
+public class RTSLevelBuilder : LevelBuilder
+{
+    public override Level BuildLevel()
     {
-        private static LevelBuilder _instance;
-
-        public static LevelBuilder Instance
-        {
-            get
-            {
-                if (_instance == null)
-                {
-                    _instance = FindObjectOfType<LevelBuilder>();
-                }
-
-                return _instance;
-            }
-        }
-
-        public void BuildLevel(Level level)
-        {
-
-        }
-
-
-
+        return new RTSLevel();
     }
 }
 
+public class RTSLevel : Level
+{
+    public override void Init()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override void StartLevel()
+    {
+        throw new System.NotImplementedException();
+    }
+}

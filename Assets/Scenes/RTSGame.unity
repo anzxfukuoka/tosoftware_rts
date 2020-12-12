@@ -491,6 +491,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1259430955}
   - component: {fileID: 1259430954}
+  - component: {fileID: 1259430957}
   - component: {fileID: 1259430956}
   m_Layer: 0
   m_Name: RTS player
@@ -575,7 +576,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d347b5b59afa5349add8101f216f0e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD:Assets/scene.unity
   speed: 2
+=======
+  moveSpeed: 4
+  rotateSpeed: 3
+--- !u!114 &1259430957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1259430953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65fa39e42495b68429845d3cd5bfe10e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.1
+>>>>>>> 0b19ba0c00363289fe4759c3595de7b257b3e81f:Assets/Scenes/RTSGame.unity
 --- !u!1001 &1414526018
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1132,7 +1151,7 @@ GameObject:
   - component: {fileID: 3396411878914391762}
   m_Layer: 0
   m_Name: SpawnCell
-  m_TagString: Untagged
+  m_TagString: BuildCell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

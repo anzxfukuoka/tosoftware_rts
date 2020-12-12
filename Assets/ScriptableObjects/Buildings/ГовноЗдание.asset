@@ -14,6 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingName: "DefaultBuilding\u2665"
   neededResources:
-    resources:
-    - {fileID: 11400000, guid: 8c1588e77c9055644879572cba981b22, type: 2}
+    resources: []
   prefab: {fileID: 4152609293187625149, guid: ff50e5f1013fa804d8bd70f66c71f4aa, type: 3}

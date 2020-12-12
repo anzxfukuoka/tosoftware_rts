@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     {
         playerWarehouseController.Init();
         
-        playerWarehouseController.AddResource(typeof(Scraps).Name, 100);
+        playerWarehouseController.AddResource(typeof(Scraps).Name, 100); //
 
         buildField.SetWarehouseController(ref playerWarehouseController);
     }

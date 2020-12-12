@@ -29,7 +29,7 @@ public class EnemySpaceShip : SpaceShip
         }
         else 
         {
-            weapon1.Use(transform);
+            //weapon1.Use(transform);
         }
 
     }
@@ -39,6 +39,6 @@ public class EnemySpaceShip : SpaceShip
 
         Debug.Log("враг здох");
         
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
 }

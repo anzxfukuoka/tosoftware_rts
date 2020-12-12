@@ -2,11 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public class ComponetsHolder : MonoBehaviour
+public class Building : MonoBehaviour
 {
-    //private Character _character = new Character();
-    [SerializeField] private List<Component> _components = new List<Component>();
     // Start is called before the first frame update
     void Start()
     {

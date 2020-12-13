@@ -13,7 +13,7 @@ public class ActionModule : ScriptableObject
         {
             if(_instance == null)
             {
-                _instance = Resources.FindObjectsOfTypeAll<ActionModule>()[0];
+                _instance = Resources.Load("ActionModule") as ActionModule;
             }
 
             return _instance;

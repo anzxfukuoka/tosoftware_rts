@@ -6,9 +6,11 @@ public class Building : MonoBehaviour
 {
     private enum UpgradeTypes
     {
+        none,
         speed,
         rotSpeed,
-        damage
+        damagePrimaryWeapon,
+        damageSecondaryWeapon
     }
     [SerializeField] private int level = 1;
     [SerializeField] UpgradeTypes _upgradeType;
@@ -41,9 +43,15 @@ public class Building : MonoBehaviour
             case (UpgradeTypes.rotSpeed):
                 _playerInstance.rotateSpeed += level / 2;
                 break;
-            default:
-
+            case (UpgradeTypes.damagePrimaryWeapon):
+                _playerInstance.weapon1.damagePower += level;
                 break;
+            case (UpgradeTypes.damageSecondaryWeapon):
+                _playerInstance.weapon2.damagePower += level;
+                break;
+            default:
+                break;
+            
         }
     }
 }

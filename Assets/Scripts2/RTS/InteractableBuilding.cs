@@ -7,6 +7,8 @@ public class InteractableBuilding : Selectable
     [SerializeField] private KeyCode _upgradeButton;
     [SerializeField] private int _maxUpgradeLvl = 6;
 
+    [SerializeField] private int _resourcesForUpgrade = 2;
+
     private int _curUpgradeLvl;
     
     protected override void Select()
@@ -32,14 +34,21 @@ public class InteractableBuilding : Selectable
         {
             if (Input.GetKeyDown(_upgradeButton))
             {
-                ActionController.Action("Upgrade");
-                Debug.LogError("Upgrade");
-                if (!_hasBuilding)
+                if (Building.playerInstance.SubstractResources(_resourcesForUpgrade))
                 {
-                    UpActionSet();
+                    ActionController.Action("Upgrade");
+                    if (!_hasBuilding)
+                    {
+                        UpActionSet();
+                    }
+                    _hasBuilding = true;
+                    _curUpgradeLvl++;
                 }
-                _hasBuilding = true;
-                _curUpgradeLvl++;
+                else
+                {
+                    Debug.LogError("NotEnough Resources");
+                }
+                
             }
             yield return null;
         }

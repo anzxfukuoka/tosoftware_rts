@@ -12,11 +12,11 @@ public class Building : MonoBehaviour
         damagePrimaryWeapon,
         damageSecondaryWeapon
     }
-    [SerializeField] private int level = 1;
+    [SerializeField] private int level = 0;
     [SerializeField] UpgradeTypes _upgradeType;
     private static PlayerSpaceShip _player;
 
-    private static PlayerSpaceShip _playerInstance
+    public static PlayerSpaceShip playerInstance
     {
         get
         {
@@ -32,22 +32,47 @@ public class Building : MonoBehaviour
         }
     }
 
+    private void Awake()
+    {
+        switch (_upgradeType)
+        {
+            
+            case (UpgradeTypes.damagePrimaryWeapon):
+
+                playerInstance.primaryWeaponUnlocked = true;
+
+
+                break;
+            case (UpgradeTypes.damageSecondaryWeapon):
+
+                    playerInstance.secondaryWeaponUnlocked = true;
+
+                break;
+            default:
+                break;
+
+        }
+    }
+
     public void Upgrade()
     {
         level++;
         switch (_upgradeType)
         {
             case (UpgradeTypes.speed):
-                _playerInstance.moveSpeed += level / 2;
+                playerInstance.moveSpeed += level / 2;
                 break;
             case (UpgradeTypes.rotSpeed):
-                _playerInstance.rotateSpeed += level / 2;
+                playerInstance.rotateSpeed += level / 2;
                 break;
             case (UpgradeTypes.damagePrimaryWeapon):
-                _playerInstance.weapon1.damagePower += level;
+
+                playerInstance.weapon1.damagePower += level;
+                
                 break;
             case (UpgradeTypes.damageSecondaryWeapon):
-                _playerInstance.weapon2.damagePower += level;
+
+                    playerInstance.weapon2.damagePower += level;
                 break;
             default:
                 break;

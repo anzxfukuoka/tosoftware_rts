@@ -38,7 +38,17 @@ public abstract class SpaceShip : Character, IDamagaReciver, IResourceCollector
     protected Health health = new Health();
     
     protected DamageReciver damageReciver;
-    protected ResourceCollector resourceCollector;
+    [SerializeField]protected ResourceCollector resourceCollector;
+
+    public bool SubstractResources(int num)
+    {
+        if(resourcesCount >= num)
+        {
+            resourcesCount -= num;
+            return true;
+        }
+        return false;
+    }
 
     public Weapon weapon1;
     public Weapon weapon2;

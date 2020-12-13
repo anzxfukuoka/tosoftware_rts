@@ -239,8 +239,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 3
   rotateSpeed: 1.6
+  resourceCollector: {fileID: 0}
   weapon1: {fileID: 11400000, guid: 690d946f21ab79341841473bec4e6e87, type: 2}
   weapon2: {fileID: 11400000, guid: 4386a9c79baff8d44929f1f50de01f7b, type: 2}
+  primaryWeaponUnlocked: 0
+  secondaryWeaponUnlocked: 0
 --- !u!212 &313595564
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -518,6 +521,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 0.01
   rotateSpeed: 1
+  resourceCollector: {fileID: 0}
   weapon1: {fileID: 11400000, guid: 690d946f21ab79341841473bec4e6e87, type: 2}
   weapon2: {fileID: 11400000, guid: 4386a9c79baff8d44929f1f50de01f7b, type: 2}
   shootSpeed: 1

@@ -99,6 +99,7 @@ MonoBehaviour:
   _actionSet: 1
   _upgradeButton: 32
   _maxUpgradeLvl: 5
+  _resourcesForUpgrade: 2
 --- !u!61 &2201941834449645466
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -137,7 +138,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd59c522d22bb9f4face87a45e7402ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 1
+  level: 0
+  _upgradeType: 0
 --- !u!1 &7408796664852321424
 GameObject:
   m_ObjectHideFlags: 0

@@ -83,6 +83,7 @@ public abstract class SpaceShip : Character, IDamagaReciver, IResourceCollector
     {
         /* -_- */
         //throw new System.NotImplementedException();
+        Debug.Log("you died, lol");
     }
 
     public void OnCollect(int resource)

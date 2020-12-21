@@ -5,9 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(DamageReciver))]
 public class PlayerSpaceShip : SpaceShip, IInputListener
 {
-    public float moveSpeed = 2f;
-    public float rotateSpeed = 2f;
-
+    public bool primaryWeaponUnlocked = false;
+    public bool secondaryWeaponUnlocked = false;
     public override void Start()
     {
         base.Start();
@@ -26,12 +25,20 @@ public class PlayerSpaceShip : SpaceShip, IInputListener
         {
             case InputButtonType.ButtonA:
                 //Debug.Log("ButtonA pressed");
-                weapon1.Use(transform);
+                if (primaryWeaponUnlocked)
+                {
+                    weapon1.Use(transform);
+                }
+                    
                 break;
 
             case InputButtonType.ButtonB:
                 //Debug.Log("ButtonB pressed");
-                weapon2.Use(transform);
+                if (secondaryWeaponUnlocked)
+                {
+                    weapon2.Use(transform);
+                }
+                    
                 break;
 
             case InputButtonType.Up:

@@ -11,13 +11,9 @@ using UnityEngine;
  * на коллайдере должен стоять isTrigger = true
  */
 
-
-
-public abstract class DamageProducer : MonoBehaviour
+public abstract class DamageProducer : CollisionProcesser
 {
-
-    public string producerTag;
-
+    private string producerTag;
 
     public string[] damageReciversTags;
 
@@ -34,6 +30,11 @@ public abstract class DamageProducer : MonoBehaviour
         damageMultiplier = value;
     }
 
+    public void SetProducerTag(string tag) 
+    {
+        producerTag = tag;
+    }
+
     private void OnTriggerStay2D(Collider2D collision)
     {
         GameObject other = collision.gameObject;
@@ -41,12 +42,13 @@ public abstract class DamageProducer : MonoBehaviour
         ProcessColissions(other);
     }
 
-    protected void ProcessColissions(GameObject other)
+    protected override void ProcessColissions(GameObject other)
     {
-        if (gameObject.tag == producerTag)
+        if (other.tag == producerTag)
         {
             return;
         }
+
         if (damageReciversTags.Length > 0)
         {
             for (int i = 0; i < damageReciversTags.Length; i++)
@@ -84,7 +86,7 @@ public abstract class DamageProducer : MonoBehaviour
 
     protected virtual void Start() 
     {
-
+        
     }
 
     protected virtual void Update()

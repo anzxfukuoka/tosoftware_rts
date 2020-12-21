@@ -23,6 +23,7 @@ public class LaserGun : Weapon
             laser = Instantiate(laserPrefab);
             laser.SetDamageMultiplier(100);
             laser.SetTransform(ref transform);
+            laser.SetProducerTag(transform.gameObject.tag);
             laser.ShowLaser();
         }
         else

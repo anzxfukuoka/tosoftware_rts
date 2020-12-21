@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 631ae7218aedf1d4d9e1d6210a1daafe, type: 3}
+  m_Name: ActionModule 1
+  m_EditorClassIdentifier: 
+  _abilitySets:
+  - abilitySet:
+    - {fileID: 11400000, guid: 107ef09a5b611da46890c49afb73b63b, type: 2}
+    - {fileID: 11400000, guid: 107ef09a5b611da46890c49afb73b63b, type: 2}
+  - abilitySet:
+    - {fileID: 11400000, guid: 678592c8440fa224e85127849004e26a, type: 2}
+  - abilitySet:
+    - {fileID: 11400000, guid: 7e7ffe4c29ae2a047bb5eafdb6d072a3, type: 2}

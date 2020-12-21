@@ -97,10 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2480ddc847fa6c74e9bac7b5be3833dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageReciversTags:
-  - Enemy
-  damagePower: 1
-  damageMultiplier: 1
+  damageReciversTags: []
   lifetime: 5
   moveSpeed: 0.1
 --- !u!114 &-3586263078615823516

@@ -15,4 +15,5 @@ MonoBehaviour:
   weaponName: DefaulWeapon
   damagePower: 0
   energy: {fileID: 0}
-  bulletPrefab: {fileID: 0}
+  bulletPrefab: {fileID: 5704296595762762934, guid: 9938c235680bd6c48a59d4d42a8fa596,
+    type: 3}

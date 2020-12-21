@@ -70,7 +70,6 @@ public abstract class SpaceShip : Character, IDamagaReciver, IResourceCollector
 
     public  virtual void OnDamage(int damage)
     {
-
         health.Hit(damage);
 
         if (!health.alive)

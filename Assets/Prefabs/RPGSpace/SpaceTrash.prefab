@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -6418085954576001306}
   m_Layer: 0
   m_Name: SpaceTrash
-  m_TagString: Untagged
+  m_TagString: PickableSpaceThing
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -117,6 +117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resource: 4
+  maxSpeed: 0.5
 --- !u!61 &1923849407453824910
 BoxCollider2D:
   m_ObjectHideFlags: 0

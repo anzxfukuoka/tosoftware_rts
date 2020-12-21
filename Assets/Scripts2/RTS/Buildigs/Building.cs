@@ -39,13 +39,13 @@ public class Building : MonoBehaviour
             
             case (UpgradeTypes.damagePrimaryWeapon):
 
-                playerInstance.primaryWeaponUnlocked = true;
+                playerInstance.weapon1.unlocked = true;
 
 
                 break;
             case (UpgradeTypes.damageSecondaryWeapon):
 
-                    playerInstance.secondaryWeaponUnlocked = true;
+                    playerInstance.weapon2.unlocked = true;
 
                 break;
             default:

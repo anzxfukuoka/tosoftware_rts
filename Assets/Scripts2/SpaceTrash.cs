@@ -4,7 +4,27 @@ using UnityEngine;
 
 public class SpaceTrash : PickableSpaceThing
 {
-    
+    private const float minSpeed = 0.1f;
+
+    [Min(minSpeed)]
+    public float maxSpeed = 1f;
+
+    private float speed;
+    private Vector3 flyDirection;
+
+    public override void Start()
+    {
+        base.Start();
+        flyDirection = new Vector3(Random.Range(-1, 1), Random.Range(-1, 1), transform.position.z);
+        speed = Random.Range(minSpeed, maxSpeed);
+    }
+
+    public override void Update()
+    {
+        base.Update();
+        transform.Translate(flyDirection * speed * Time.deltaTime);
+    }
+
 }
 
 public abstract class PickableSpaceThing : MonoBehaviour, IPickable
@@ -22,6 +42,9 @@ public abstract class PickableSpaceThing : MonoBehaviour, IPickable
         return this.resource;
     }
 
+    virtual public void Start() {}
+
+    virtual public void Update() {}
 }
 
 public interface IPickable 

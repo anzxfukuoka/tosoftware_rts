@@ -4,6 +4,13 @@ using UnityEngine;
 
 public abstract class CollisionProcesser : MonoBehaviour
 {
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        GameObject other = collision.gameObject;
+
+        ProcessColissions(other);
+    }
+
     private void OnTriggerStay2D(Collider2D collision)
     {
         GameObject other = collision.gameObject;

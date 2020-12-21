@@ -6,6 +6,7 @@ TagManager:
   tags:
   - BuildCell
   - Enemy
+  - PickableSpaceThing
   layers:
   - Default
   - TransparentFX

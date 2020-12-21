@@ -10,4 +10,8 @@ public abstract class Weapon : ScriptableObject
     public Energy energy;
 
     public abstract void Use(Transform transform);
+
+    public bool unlocked = true;
+
+
 }

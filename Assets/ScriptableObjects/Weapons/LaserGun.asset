@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: LaserGun
   m_EditorClassIdentifier: Assembly-CSharp::LaserGun
   weaponName: LaserGun
-  damagePower: 100
+  damagePower: 20
   energy: {fileID: 0}
+  unlocked: 1
   laserPrefab: {fileID: 6250198939816926964, guid: b3481f7ce52afd64786cc9361f6e85ac,
     type: 3}

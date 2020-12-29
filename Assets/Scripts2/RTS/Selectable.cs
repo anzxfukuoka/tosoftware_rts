@@ -93,12 +93,16 @@ public class Selectable : MonoBehaviour, IPointerClickHandler
         Debug.Log("Selected");
         selected?.DeSelect();
         selected = this;
+
+        gameObject.transform.localScale = Vector3.one * 3.4f;
     }
 
     public virtual void DeSelect()
     {
         Debug.Log("DeSelected");
         selected = null;
+
+        gameObject.transform.localScale = Vector3.one * 3f;
     }
 }
 

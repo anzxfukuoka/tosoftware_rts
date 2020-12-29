@@ -99,7 +99,8 @@ MonoBehaviour:
   _actionSet: 1
   _upgradeButton: 32
   _maxUpgradeLvl: 5
-  _resourcesForUpgrade: 2
+  _resourcesForUpgrade: 20
+  w: {fileID: 0}
 --- !u!61 &2201941834449645466
 BoxCollider2D:
   m_ObjectHideFlags: 0

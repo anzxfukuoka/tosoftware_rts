@@ -11,7 +11,8 @@ public abstract class Weapon : ScriptableObject
 
     public abstract void Use(Transform transform);
 
-    public bool unlocked = true;
+    [HideInInspector]
+    public bool unlocked = false;
 
 
 }

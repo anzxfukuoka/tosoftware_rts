@@ -490,7 +490,7 @@ MonoBehaviour:
   moveSpeed: 3
   rotateSpeed: 1.6
   resourceCollector: {fileID: 313595569}
-  weapon1: {fileID: 11400000, guid: a71e0b8d7011e23419deb8ee1882bbdb, type: 2}
+  weapon1: {fileID: 11400000, guid: 690d946f21ab79341841473bec4e6e87, type: 2}
   weapon2: {fileID: 11400000, guid: 4386a9c79baff8d44929f1f50de01f7b, type: 2}
 --- !u!212 &313595564
 SpriteRenderer:
@@ -2909,6 +2909,99 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1112857137}
     m_Modifications:
+    - target: {fileID: 2116711774607415715, guid: bbd067b731ee4e749a461c7659da1dc2,
+        type: 3}
+      propertyPath: type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6413779752404011935, guid: bbd067b731ee4e749a461c7659da1dc2,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.7053747
+      objectReference: {fileID: 0}
+    - target: {fileID: 6413779752404011935, guid: bbd067b731ee4e749a461c7659da1dc2,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6413779752404011935, guid: bbd067b731ee4e749a461c7659da1dc2,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6413779754016539731, guid: bbd067b731ee4e749a461c7659da1dc2,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6413779754016539731, guid: bbd067b731ee4e749a461c7659da1dc2,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6413779754016539731, guid: bbd067b731ee4e749a461c7659da1dc2,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.95438147
+      objectReference: {fileID: 0}
+    - target: {fileID: 6413779754502856320, guid: bbd067b731ee4e749a461c7659da1dc2,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6413779754502856320, guid: bbd067b731ee4e749a461c7659da1dc2,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.44600797
+      objectReference: {fileID: 0}
+    - target: {fileID: 6413779754502856320, guid: bbd067b731ee4e749a461c7659da1dc2,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6877177333548725326, guid: bbd067b731ee4e749a461c7659da1dc2,
+        type: 3}
+      propertyPath: type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6877177333851032755, guid: bbd067b731ee4e749a461c7659da1dc2,
+        type: 3}
+      propertyPath: w
+      value: 
+      objectReference: {fileID: 11400000, guid: 690d946f21ab79341841473bec4e6e87,
+        type: 2}
+    - target: {fileID: 6877177333862177363, guid: bbd067b731ee4e749a461c7659da1dc2,
+        type: 3}
+      propertyPath: type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6877177334068975200, guid: bbd067b731ee4e749a461c7659da1dc2,
+        type: 3}
+      propertyPath: w
+      value: 
+      objectReference: {fileID: 11400000, guid: a71e0b8d7011e23419deb8ee1882bbdb,
+        type: 2}
+    - target: {fileID: 6877177334410276666, guid: bbd067b731ee4e749a461c7659da1dc2,
+        type: 3}
+      propertyPath: type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6877177334606158252, guid: bbd067b731ee4e749a461c7659da1dc2,
+        type: 3}
+      propertyPath: w
+      value: 
+      objectReference: {fileID: 11400000, guid: 4386a9c79baff8d44929f1f50de01f7b,
+        type: 2}
+    - target: {fileID: 6877177335296719354, guid: bbd067b731ee4e749a461c7659da1dc2,
+        type: 3}
+      propertyPath: type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6877177335298019932, guid: bbd067b731ee4e749a461c7659da1dc2,
+        type: 3}
+      propertyPath: type
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8306808811348318638, guid: bbd067b731ee4e749a461c7659da1dc2,
         type: 3}
       propertyPath: m_Name

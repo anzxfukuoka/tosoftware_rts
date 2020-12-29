@@ -2,12 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+enum BuildingType 
+{
+    Weapon,
+    Upgrade
+}
+
 public class InteractableBuilding : Selectable
 {
     [SerializeField] private KeyCode _upgradeButton;
     [SerializeField] private int _maxUpgradeLvl = 6;
 
     [SerializeField] private int _resourcesForUpgrade = 2;
+
+    [SerializeField] private Weapon w;
+    [SerializeField] private BuildingType type;
 
     private int _curUpgradeLvl;
     
@@ -19,6 +28,9 @@ public class InteractableBuilding : Selectable
         }
         base.Select();
         StartCoroutine(CheckForInput());
+
+        if(type == BuildingType.Weapon)
+            Building.playerInstance.weapon1 = w;
     }
 
     public override void DeSelect()
@@ -30,29 +42,35 @@ public class InteractableBuilding : Selectable
     bool _hasBuilding = false;
     IEnumerator CheckForInput()
     {
-        while (_curUpgradeLvl <= _maxUpgradeLvl)
+        if (type == BuildingType.Upgrade) 
         {
-            if (Input.GetKeyDown(_upgradeButton))
+            while (_curUpgradeLvl <= _maxUpgradeLvl)
             {
-                if (Building.playerInstance.SubstractResources(_resourcesForUpgrade))
+                if (Input.GetKeyDown(_upgradeButton))
                 {
-                    ActionController.Action("Upgrade");
-                    if (!_hasBuilding)
+                    if (Building.playerInstance.SubstractResources(_resourcesForUpgrade))
                     {
-                        UpActionSet();
+                        ActionController.Action("Upgrade");
+                        if (!_hasBuilding)
+                        {
+                            UpActionSet();
+                        }
+                        _hasBuilding = true;
+                        _curUpgradeLvl++;
                     }
-                    _hasBuilding = true;
-                    _curUpgradeLvl++;
+                    else
+                    {
+                        Debug.LogError("NotEnough Resources");
+                    }
+
                 }
-                else
-                {
-                    Debug.LogError("NotEnough Resources");
-                }
-                
+                yield return null;
             }
-            yield return null;
+            DeSelect();
         }
-        DeSelect();
+
+        yield return null;
+
     }
 
 

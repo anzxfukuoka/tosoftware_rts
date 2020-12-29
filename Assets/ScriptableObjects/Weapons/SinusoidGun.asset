@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: SinusoidGun
   m_EditorClassIdentifier: 
   weaponName: "\u041F\u044C\u044F\u043D\u0430\u044F \u043F\u0443\u0448\u043A\u0430"
-  damagePower: 0
+  damagePower: 6
   energy: {fileID: 0}
+  unlocked: 0
   bulletPrefab: {fileID: 4278915702487990190, guid: f7840dcb4a0059c41b81a0b68c84e77b,
     type: 3}

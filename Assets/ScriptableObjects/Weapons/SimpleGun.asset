@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: SimpleGun
   m_EditorClassIdentifier: Assembly-CSharp::Gun
   weaponName: DefaulWeapon
-  damagePower: 0
+  damagePower: 1
   energy: {fileID: 0}
+  unlocked: 1
   bulletPrefab: {fileID: 684300583656402740, guid: 89feed51bc6aaaf47b38cb783813ecf6,
     type: 3}

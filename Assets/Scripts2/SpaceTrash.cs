@@ -25,6 +25,10 @@ public class SpaceTrash : PickableSpaceThing
         transform.Translate(flyDirection * speed * Time.deltaTime);
     }
 
+    public void SetPos(float x, float y)
+    {
+        transform.position = new Vector3(x , y, 0);
+    }
 }
 
 public abstract class PickableSpaceThing : MonoBehaviour, IPickable
